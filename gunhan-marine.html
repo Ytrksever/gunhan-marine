@@ -1,0 +1,831 @@
+<title>Günhan Marine</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Düzen: gece köprüsü (bridge) teması. Koyu lacivert zemin, canlı dalga konturları, dönen radar; aşağıda bento hizmet panelleri ve scroll ile ilerleyen süreç hattı. Tek tema bilinçli seçim. */
+:root {
+  color-scheme: dark;
+  --bg: #07131f;
+  --bg2: #0a1b2b;
+  --surface: #0d2133;
+  --surface2: #12304a;
+  --ink: #eaf2f6;
+  --muted: #8fa7b6;
+  --line: rgba(160, 200, 225, .15);
+  --teal: #4fd6e0;
+  --accent: #d7d521;
+  --accent-hover: #e6e44c;
+  --on-accent: #06202f;
+  --focus: #8cc4ff;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1; letter-spacing: -.03em; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+.wrap {
+  max-width: 1160px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.mono { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; }
+.eyebrow { font-family: var(--mono); font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); display: inline-flex; align-items: center; gap: .6rem; }
+.eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+section[id] { scroll-margin-top: 80px; }
+
+/* Düğmeler: basınca anında küçülür, hover hızlı, odak halkası belirgin */
+.btn {
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 52px; padding: 0 1.4rem;
+  font: 600 1rem/1 var(--body); letter-spacing: .005em;
+  border: 1.5px solid transparent; border-radius: 999px;
+  cursor: pointer; text-decoration: none; user-select: none;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--s, 1));
+  transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out, transform 160ms var(--ease);
+}
+.btn:active { --s: .96; transition-duration: 60ms; }
+.btn:focus-visible, a:focus-visible, summary:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.6) 50%, transparent 70%); transform: translateX(-130%); transition: transform 700ms var(--ease); pointer-events: none; }
+.btn-primary:hover::after { transform: translateX(130%); }
+.btn-ghost { background: rgba(255,255,255,.03); border-color: var(--line); color: var(--ink); backdrop-filter: blur(6px); }
+.btn-ghost:hover { border-color: rgba(234,242,246,.55); background: rgba(255,255,255,.07); }
+.btn-sm { min-height: 44px; padding: 0 1.1rem; font-size: .9375rem; }
+.arrow { display: inline-block; transition: transform 200ms var(--ease); }
+.btn:hover .arrow, .tile:hover .arrow { transform: translateX(4px); }
+
+/* Üst bar */
+.progress { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: 2px; z-index: 70; background: linear-gradient(90deg, var(--teal), var(--accent)); transform-origin: 0 50%; transform: scaleX(var(--sp, 0)); pointer-events: none; }
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(7, 19, 31, .6); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.1875rem; letter-spacing: .04em; text-transform: uppercase; }
+.brand svg { width: 28px; height: 28px; flex: none; }
+nav.main { display: none; gap: .25rem; }
+nav.main a { text-decoration: none; font-weight: 500; font-size: .9375rem; color: var(--muted); padding: .55rem .9rem; border-radius: 999px; transition: color 160ms ease-out, background-color 160ms ease-out; }
+nav.main a:hover { color: var(--ink); background: rgba(255,255,255,.06); }
+@media (min-width: 900px) { nav.main { display: flex; } }
+
+/* Kahraman */
+.hero {
+  position: relative; isolation: isolate; overflow: clip;
+  background:
+    radial-gradient(900px 520px at 88% -5%, rgba(79,214,224,.2), transparent 62%),
+    radial-gradient(700px 500px at -5% 105%, rgba(215,213,33,.07), transparent 60%),
+    var(--bg);
+}
+#waves { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.hero .wrap { display: grid; gap: 3rem; padding-block: 3.5rem 5rem; }
+.hero h1 { font-size: clamp(3.4rem, 12vw, 6.9rem); line-height: .93; letter-spacing: -.045em; margin-top: 1.25rem; font-weight: 800; }
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.hero h1 .w { display: inline-block; animation: rise 1000ms var(--ease) both; }
+.hero h1 .line:nth-child(2) .w { animation-delay: 110ms; }
+.hero h1 .line:nth-child(3) .w { animation-delay: 220ms; }
+@keyframes rise { from { transform: translateY(108%) rotate(3deg); } to { transform: none; } }
+.water {
+  color: transparent; -webkit-background-clip: text; background-clip: text;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='40' viewBox='0 0 160 40'%3E%3Cpath d='M0 20 Q20 2 40 20 T80 20 T120 20 T160 20' fill='none' stroke='rgba(255,255,255,.7)' stroke-width='2.5'/%3E%3C/svg%3E"),
+    linear-gradient(90deg, #4fd6e0, #d7d521, #4fd6e0);
+  background-repeat: repeat-x, repeat-x;
+  background-size: 160px 44px, 640px 100%;
+  background-position: 0 62%, 0 0;
+  animation: rise 1000ms var(--ease) 110ms both, drift 7s linear infinite;
+}
+@keyframes drift { to { background-position: -160px 62%, -640px 0; } }
+.hero .lead { margin-top: 1.75rem; max-width: 33rem; font-size: 1.1875rem; color: var(--muted); animation: fade 900ms var(--ease) 450ms both; }
+.hero .lead strong { color: var(--ink); font-weight: 500; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; animation: fade 900ms var(--ease) 600ms both; }
+.hero .eyebrow { animation: fade 900ms var(--ease) both; }
+@keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Radar paneli */
+.radar-card { position: relative; align-self: center; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(180deg, rgba(13,33,51,.78), rgba(7,19,31,.72)); backdrop-filter: blur(10px); min-width: 0; overflow: hidden; animation: fade 1000ms var(--ease) 350ms both; box-shadow: 0 30px 80px -30px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.06); }
+.radar-head { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1.1rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+.radar-head .live { display: inline-flex; align-items: center; gap: .5rem; color: var(--teal); }
+.radar-head .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(79,214,224,.6); } 50% { opacity: .5; box-shadow: 0 0 0 7px rgba(79,214,224,0); } }
+#radar { display: block; width: 100%; aspect-ratio: 1; max-height: 470px; margin-inline: auto; }
+.radar-foot { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+.radar-foot div { padding: .8rem 1.1rem; border-left: 1px solid var(--line); min-width: 0; }
+.radar-foot div:first-child { border-left: 0; }
+.radar-foot b { display: block; font-family: var(--display); font-size: 1.25rem; letter-spacing: -.02em; }
+.radar-foot span { color: var(--muted); font-family: var(--mono); font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase; }
+@media (min-width: 960px) { .hero .wrap { grid-template-columns: 1.15fr 1fr; gap: 3.5rem; padding-block: 5rem 6rem; } }
+
+/* Kayan şerit */
+.marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--bg2); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.track { display: flex; width: max-content; animation: slide 55s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+.track .grp { display: flex; flex: none; }
+.track span { display: flex; align-items: center; gap: 1.75rem; padding: 1.05rem 0 1.05rem 1.75rem; font-family: var(--mono); font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.track span::after { content: ""; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Sayılar */
+.stats .wrap { display: grid; gap: 0; padding-block: 2.5rem; }
+.stat { display: grid; gap: .25rem 1.25rem; grid-template-columns: auto 1fr; align-items: baseline; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+.stat:last-child { border-bottom: 0; }
+.stat b { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 9vw, 4.5rem); line-height: .9; letter-spacing: -.05em; min-width: 1.2ch; font-variant-numeric: tabular-nums; background: linear-gradient(180deg, var(--ink), var(--teal)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat span { color: var(--muted); max-width: 22rem; }
+@media (min-width: 860px) {
+  .stats .wrap { grid-template-columns: repeat(3, 1fr); }
+  .stat { border-bottom: 0; border-left: 1px solid var(--line); padding: .5rem 0 .5rem 2rem; grid-template-columns: 1fr; }
+  .stat:first-child { border-left: 0; padding-left: 0; }
+}
+
+/* Bölüm başlıkları */
+.sec { padding-block: 5rem; }
+.sec-head { display: grid; gap: 1rem; margin-bottom: 2.75rem; max-width: 46rem; }
+.sec-head h2 { font-size: clamp(2.4rem, 6.4vw, 4.25rem); line-height: .98; }
+.sec-head p { color: var(--muted); font-size: 1.125rem; }
+
+/* Bento hizmetler */
+.bento { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .bento { grid-template-columns: repeat(2, 1fr); } .t-a, .t-d { grid-column: span 2; } }
+@media (min-width: 960px) { .bento { grid-template-columns: repeat(3, 1fr); } .t-a, .t-d, .t-f { grid-column: span 2; } }
+.tile {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; gap: .75rem; min-height: 270px; padding: 1.6rem;
+  border: 1px solid var(--line); border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 60%), var(--surface);
+  transition: border-color 220ms ease-out, transform 260ms var(--ease);
+}
+.tile::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(79,214,224,.2), transparent 62%); opacity: 0; transition: opacity 260ms ease-out; }
+.tile:hover { border-color: rgba(79,214,224,.42); transform: translateY(-3px); }
+.tile:hover::before { opacity: 1; }
+.ico-box { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; border: 1px solid var(--line); background: rgba(79,214,224,.08); color: var(--teal); }
+.ico-box svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tile .tag { font-family: var(--mono); font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.tile h3 { font-size: clamp(1.5rem, 3.4vw, 2rem); line-height: 1.02; }
+.tile p { color: var(--muted); max-width: 34rem; }
+.tile .go { margin-top: auto; align-self: flex-start; }
+.t-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.badge { font-family: var(--mono); font-size: .6875rem; letter-spacing: .12em; color: var(--accent); border: 1px solid rgba(215,213,33,.4); padding: .3rem .6rem; border-radius: 999px; }
+.spin-bg { position: absolute; right: -60px; bottom: -70px; width: 300px; height: 300px; z-index: -1; opacity: .09; color: var(--teal); fill: currentColor; animation: spin 40s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Süreç */
+.proc { display: grid; gap: 3rem; }
+@media (min-width: 960px) { .proc { grid-template-columns: .9fr 1.1fr; gap: 5rem; align-items: start; } .proc .sec-head { position: sticky; top: 110px; margin-bottom: 0; } }
+.steps { position: relative; display: grid; gap: 2.75rem; padding-left: 4rem; }
+.rail { position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: var(--line); border-radius: 2px; }
+.rail i { display: block; width: 100%; height: 100%; border-radius: 2px; background: linear-gradient(var(--accent), var(--teal)); transform-origin: top; transform: scaleY(var(--p, 1)); }
+.step { position: relative; opacity: .42; transition: opacity 400ms ease-out; }
+.step.on { opacity: 1; }
+.step .dot { position: absolute; left: -4rem; top: 0; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--mono); font-size: .75rem; letter-spacing: .04em; color: var(--muted); background: var(--bg); border: 1px solid var(--line); transition: background-color 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out; }
+.step.on .dot { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.step h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: .6rem; }
+.step p { color: var(--muted); max-width: 32rem; }
+
+/* Bölgeler */
+.regions { border-top: 1px solid var(--line); }
+.region { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: .15rem 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); transition: padding-left 300ms var(--ease), background-color 200ms ease-out; }
+.region::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: linear-gradient(90deg, var(--accent), var(--teal)); transform: scaleX(0); transform-origin: 0 50%; transition: transform 500ms var(--ease); }
+.region:hover { padding-left: 1rem; background: rgba(255,255,255,.02); }
+.region:hover::before { transform: scaleX(1); }
+.region b { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 7vw, 4rem); letter-spacing: -.04em; line-height: 1; grid-column: 1; }
+.region .d { color: var(--muted); grid-column: 1; }
+.region .km { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--mono); font-size: .8125rem; color: var(--teal); text-align: right; }
+.note { margin-top: 1.5rem; color: var(--muted); max-width: 44rem; }
+
+/* Hakkımızda ve SSS */
+.about-sec { background: var(--bg2); border-block: 1px solid var(--line); }
+.big-quote { font-family: var(--display); font-weight: 600; font-size: clamp(1.7rem, 4.6vw, 3rem); line-height: 1.12; letter-spacing: -.03em; max-width: 26ch; text-wrap: balance; }
+.big-quote em { font-style: normal; color: var(--accent); }
+.big-p { margin-top: 1.5rem; color: var(--muted); max-width: 38rem; font-size: 1.125rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+.tag-pill { font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; border: 1px solid var(--line); padding: .45rem .85rem; border-radius: 999px; color: var(--ink); transition: border-color 160ms ease-out, background-color 160ms ease-out; }
+.tag-pill:hover { border-color: var(--teal); background: rgba(79,214,224,.08); }
+.split { display: grid; gap: 3rem; }
+@media (min-width: 960px) { .split { grid-template-columns: .85fr 1.15fr; gap: 5rem; align-items: start; } }
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 64px; padding: 1.1rem 0; font-weight: 600; font-size: 1.125rem; -webkit-tap-highlight-color: transparent; touch-action: manipulation; transition: color 160ms ease-out, opacity 100ms ease-out; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--teal); }
+.faq summary:active { opacity: .6; }
+.faq summary::after { content: "+"; flex: none; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-family: var(--mono); font-size: 1.1rem; transition: transform 300ms var(--ease), background-color 200ms ease-out, color 200ms ease-out; }
+.faq details[open] summary::after { transform: rotate(135deg); background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.faq .ans { padding: 0 0 1.4rem; color: var(--muted); max-width: 40rem; }
+.faq details[open] .ans { animation: fade 400ms var(--ease) both; }
+
+/* Talep */
+.talep { position: relative; isolation: isolate; overflow: clip; background: radial-gradient(800px 480px at 15% 0%, rgba(79,214,224,.16), transparent 62%), radial-gradient(600px 400px at 100% 100%, rgba(215,213,33,.08), transparent 60%), var(--bg); }
+.talep h2 { font-size: clamp(2.6rem, 8vw, 5.5rem); line-height: .94; letter-spacing: -.045em; }
+.talep .grid { display: grid; gap: 3rem; }
+@media (min-width: 960px) { .talep .grid { grid-template-columns: 1fr 1.05fr; gap: 4.5rem; align-items: start; } }
+.contact-list { display: grid; margin-top: 2.25rem; border-top: 1px solid var(--line); }
+.contact-item { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.contact-item .k { font-family: var(--mono); font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .2rem; }
+.contact-item .v { font-family: var(--display); font-size: clamp(1.35rem, 4vw, 1.75rem); font-weight: 600; letter-spacing: -.02em; user-select: all; overflow-wrap: anywhere; }
+.btn-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+.panel { border: 1px solid var(--line); border-radius: 24px; padding: 1.5rem; background: linear-gradient(180deg, rgba(13,33,51,.85), rgba(10,27,43,.8)); backdrop-filter: blur(10px); box-shadow: 0 30px 80px -30px rgba(0,0,0,.7); }
+@media (min-width: 640px) { .panel { padding: 2rem; } }
+.form { display: grid; gap: 1rem; }
+.field { display: grid; gap: .45rem; min-width: 0; }
+.field label { font-family: var(--mono); font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.field select, .field input, .field textarea { width: 100%; min-height: 52px; padding: .75rem 1rem; font: 400 1rem/1.4 var(--body); color: var(--ink); background: rgba(255,255,255,.03); border: 1.5px solid var(--line); border-radius: 14px; transition: border-color 160ms ease-out, background-color 160ms ease-out; }
+.field select option { color: #06202f; background: #fff; }
+.field textarea { min-height: 104px; resize: vertical; }
+.field select:hover, .field input:hover, .field textarea:hover { border-color: rgba(160,200,225,.35); }
+.field select:focus, .field input:focus, .field textarea:focus { border-color: var(--teal); background: rgba(79,214,224,.05); }
+.row2 { display: grid; gap: 1rem; }
+@media (min-width: 560px) { .row2 { grid-template-columns: 1fr 1fr; } }
+.preview { font-family: var(--mono); font-size: .8125rem; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; border: 1px dashed rgba(160,200,225,.3); border-radius: 14px; padding: 1rem; color: var(--muted); min-width: 0; }
+.form-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.status { min-height: 1.5em; font-size: .9375rem; color: var(--teal); }
+
+/* Alt bilgi */
+footer { position: relative; overflow: hidden; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.75rem; color: var(--muted); font-size: .9375rem; }
+.wordmark { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(3rem, 15.5vw, 12.5rem); line-height: .8; letter-spacing: -.055em; text-align: center; white-space: nowrap; margin-bottom: -.12em; background: linear-gradient(180deg, rgba(79,214,224,.5), rgba(79,214,224,0) 82%); -webkit-background-clip: text; background-clip: text; color: transparent; user-select: none; }
+
+/* Sabit WhatsApp düğmesi */
+.fab { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 45; min-height: 52px; box-shadow: 0 12px 32px -8px rgba(0,0,0,.6); opacity: 0; pointer-events: none; translate: 0 20px; transition: opacity 300ms ease-out, translate 400ms var(--ease), transform 160ms var(--ease), background-color 160ms ease-out; }
+.fab.show { opacity: 1; pointer-events: auto; translate: 0 0; }
+
+/* Scroll ile açılan bölümler (destekleyen tarayıcılarda) */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    @keyframes reveal { from { opacity: .15; transform: translateY(36px) scale(.985); } to { opacity: 1; transform: none; } }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
+  .track { animation: none !important; }
+  .marquee { overflow-x: auto; }
+  .btn:active { --s: 1; opacity: .8; }
+  .tile:hover { transform: none; }
+}
+</style>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Günhan Marine ana sayfa">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="8" fill="#d7d521"/><path d="M5 17c2.3-2.6 4.7-2.6 7 0s4.7 2.6 7 0 3-2 4-1.3" fill="none" stroke="#06202f" stroke-width="2.2" stroke-linecap="round"/><path d="M14 5v9" stroke="#06202f" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="7" r="2" fill="none" stroke="#06202f" stroke-width="1.8"/></svg>
+      Günhan Marine
+    </a>
+    <nav class="main" aria-label="Ana menü">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#bolgeler">Bölgeler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#sss">SSS</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#talep">İletişim</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <canvas id="waves" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Mobil marine teknik servis</p>
+        <h1 aria-label="Sorunun köküne ineriz.">
+          <span class="line" aria-hidden="true"><span class="w">Sorunun</span></span>
+          <span class="line" aria-hidden="true"><span class="w water">köküne</span></span>
+          <span class="line" aria-hidden="true"><span class="w">ineriz.</span></span>
+        </h1>
+        <p class="lead">Gemi mühendisliği disipliniyle; <strong>deniz motorundan seyir elektroniğine</strong>, arızanın nedenini buluruz, kalıcı çözeriz. Ekip ve ekipman teknenizin olduğu yere gelir.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#talep">Yerinde servis talebi <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#hizmetler">Hizmetleri gör</a>
+        </div>
+      </div>
+
+      <aside class="radar-card" aria-label="Hizmet noktaları">
+        <div class="radar-head mono"><span>HİZMET NOKTALARI · ŞEMATİK</span><span class="live"><i></i>TÜRKİYE GENELİ</span></div>
+        <canvas id="radar" role="img" aria-label="Radar görünümünde marina, çekek yeri ve tersane hizmet noktaları"></canvas>
+        <div class="radar-foot">
+          <div><b>Marina</b><span>yerinde servis</span></div>
+          <div><b>Çekek yeri</b><span>yerinde servis</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="Çalışma alanları">
+    <div class="track">
+      <div class="grp">
+        <span>Deniz motoru</span><span>Şaft-pervane</span><span>Overhaul</span><span>Chartplotter</span><span>Radar</span><span>Otopilot</span><span>AIS</span><span>VHF</span><span>NMEA 2000</span><span>AC/DC elektrik</span><span>Jeneratör</span><span>Akü bankası</span><span>İnverter</span><span>Seacock</span><span>Sintine pompası</span><span>Ozmoz kontrolü</span><span>Antifouling</span><span>Kompresyon testi</span>
+      </div>
+      <div class="grp" aria-hidden="true">
+        <span>Deniz motoru</span><span>Şaft-pervane</span><span>Overhaul</span><span>Chartplotter</span><span>Radar</span><span>Otopilot</span><span>AIS</span><span>VHF</span><span>NMEA 2000</span><span>AC/DC elektrik</span><span>Jeneratör</span><span>Akü bankası</span><span>İnverter</span><span>Seacock</span><span>Sintine pompası</span><span>Ozmoz kontrolü</span><span>Antifouling</span><span>Kompresyon testi</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="stats">
+    <div class="wrap">
+      <div class="stat reveal"><b>TR</b><span>geneli mobil servis, ekip teknenizin olduğu yere gelir</span></div>
+      <div class="stat reveal"><b data-count="6">6</b><span>uzmanlık alanı, motordan seyir elektroniğine tek ekipte</span></div>
+      <div class="stat reveal"><b>0</b><span>tekne taşıma. Servis teknenizin bulunduğu yerde yapılır</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="hizmetler" style="padding-top:2rem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Hizmetlerimiz</p>
+        <h2>Teknenizin tüm teknik ihtiyacı, tek çatı altında</h2>
+      </div>
+      <div class="bento">
+        <article class="tile t-a reveal">
+          <svg class="spin-bg" viewBox="0 0 24 24" aria-hidden="true"><g><ellipse cx="12" cy="5.5" rx="2.6" ry="5"/><ellipse cx="12" cy="5.5" rx="2.6" ry="5" transform="rotate(120 12 12)"/><ellipse cx="12" cy="5.5" rx="2.6" ry="5" transform="rotate(240 12 12)"/><circle cx="12" cy="12" r="2.2"/></g></svg>
+          <div class="t-top"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="2.2" ry="4"/><ellipse cx="12" cy="5.5" rx="2.2" ry="4" transform="rotate(120 12 12)"/><ellipse cx="12" cy="5.5" rx="2.2" ry="4" transform="rotate(240 12 12)"/><circle cx="12" cy="12" r="1.6"/></svg></div><span class="tag">Sevk</span></div>
+          <h3>Deniz Motorları &amp; Sevk Sistemleri</h3>
+          <p>İçten takma (inboard) ve dıştan takma (outboard) deniz motorlarında periyodik bakım, overhaul (rektifiye), arıza teşhisi ve orijinal yedek parça tedariği.</p>
+          <button class="btn btn-ghost btn-sm go" type="button" data-service="Deniz motorları ve sevk sistemleri">Talep et <span class="arrow" aria-hidden="true">→</span></button>
+        </article>
+        <article class="tile t-b reveal">
+          <div class="t-top"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg></div><span class="tag">Mekanik</span></div>
+          <h3>Tekne Mekanik &amp; Yardımcı Sistemler</h3>
+          <p>Şaft-pervane hatları, seacock, sintine ve tatlı su pompaları, dümen sistemleri ve hidrolik aksamların bakım, onarım ve değişimi.</p>
+          <button class="btn btn-ghost btn-sm go" type="button" data-service="Tekne mekanik ve yardımcı sistemler">Talep et <span class="arrow" aria-hidden="true">→</span></button>
+        </article>
+        <article class="tile t-c reveal">
+          <div class="t-top"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/></svg></div><span class="tag">Seyir</span></div>
+          <h3>Seyir Elektroniği &amp; Navigasyon</h3>
+          <p>Chartplotter, radar, otopilot, AIS ve VHF kurulumu; NMEA 2000 ağ entegrasyonu ve kalibrasyon.</p>
+          <button class="btn btn-ghost btn-sm go" type="button" data-service="Seyir elektroniği ve navigasyon">Talep et <span class="arrow" aria-hidden="true">→</span></button>
+        </article>
+        <article class="tile t-d reveal">
+          <div class="t-top"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.5L4.5 13.5H11l-1 8 8.5-11H12z"/></svg></div><span class="badge">ABYC</span></div>
+          <h3>Marine Elektrik &amp; Güç Yönetimi</h3>
+          <p>AC/DC marine elektrik, jeneratör bakımı, akü bankaları, inverter kurulumu ve arıza tespiti. ABYC standartlarına uygun.</p>
+          <button class="btn btn-ghost btn-sm go" type="button" data-service="Marine elektrik ve güç yönetimi">Talep et <span class="arrow" aria-hidden="true">→</span></button>
+        </article>
+        <article class="tile t-e reveal">
+          <div class="t-top"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14h18l-2.6 5H5.6z"/><path d="M12 14V4l5.5 8"/></svg></div><span class="tag">Karina</span></div>
+          <h3>Karina Bakımı &amp; Antifouling</h3>
+          <p>Gövde hazırlığı, ozmoz kontrolü ve yüksek kaliteli antifouling (zehirli boya) uygulaması.</p>
+          <button class="btn btn-ghost btn-sm go" type="button" data-service="Karina bakımı ve antifouling">Talep et <span class="arrow" aria-hidden="true">→</span></button>
+        </article>
+        <article class="tile t-f reveal">
+          <div class="t-top"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17.5" rx="2"/><path d="M9 3.5h6v3H9zM8.8 13.2l2.5 2.5 4.4-5"/></svg></div><span class="tag">Ekspertiz</span></div>
+          <h3>Alım Öncesi Ekspertiz</h3>
+          <p>İkinci el tekne alımlarında bağımsız motor, mekanik ve elektrik ekspertizi. Kompresyon testi, arıza teşhisi, detaylı rapor.</p>
+          <button class="btn btn-ghost btn-sm go" type="button" data-service="Alım öncesi ekspertiz">Talep et <span class="arrow" aria-hidden="true">→</span></button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="surec" style="padding-top:1rem">
+    <div class="wrap proc">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Süreç</p>
+        <h2>Teknenizi taşımanıza gerek yok</h2>
+        <p>Ekip ve ekipman teknenizin bulunduğu yere gelir: marinaya, çekek yerine, tersaneye ya da göl kıyısındaki bağlama noktasına.</p>
+      </div>
+      <div class="steps" id="steps">
+        <div class="rail" aria-hidden="true"><i id="rail"></i></div>
+        <div class="step on">
+          <span class="dot">01</span>
+          <h3>Talep</h3>
+          <p>Telefon, WhatsApp veya e-posta ile yazın. Tekne tipini, motor veya sistem bilgisini ve sorunu kısaca belirtmeniz ilk değerlendirmeyi hızlandırır.</p>
+        </div>
+        <div class="step on">
+          <span class="dot">02</span>
+          <h3>Yerinde inceleme</h3>
+          <p>Tekne bulunduğu yerde incelenir. Arızanın belirtileri değil, nedeni aranır.</p>
+        </div>
+        <div class="step on">
+          <span class="dot">03</span>
+          <h3>Kapsam ve işlem</h3>
+          <p>İş kapsamı netleşir, yapılacak işlem size açıkça anlatılır. Sonra çözüm sahada uygulanır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="bolgeler" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Hizmet bölgesi</p>
+        <h2>Türkiye genelinde, teknenizin olduğu yerde</h2>
+        <p>Acil arıza taleplerine en kısa sürede dönüş yapılır ve yerinde müdahale planlanır. En hızlı yol telefon veya WhatsApp. Teknenin konumunu ve arızanın belirtilerini iletmeniz süreci hızlandırır.</p>
+      </div>
+      <div class="regions reveal">
+        <div class="region"><b>Marina</b><span class="d">Teknenin bağlı olduğu iskelede yerinde servis</span><span class="km">mobil servis</span></div>
+        <div class="region"><b>Çekek yeri</b><span class="d">Karaya çekilmiş teknede yerinde bakım</span><span class="km">mobil servis</span></div>
+        <div class="region"><b>Tersane</b><span class="d">Tersane sahasında yerinde servis</span><span class="km">mobil servis</span></div>
+      </div>
+      <p class="note">Hizmet Türkiye genelinde, teknenin bulunduğu konuma göre planlanır. Haritadaki noktalar şematiktir.</p>
+    </div>
+  </section>
+
+  <section class="sec about-sec" id="hakkimizda">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="margin-bottom:1.5rem">Hakkımızda</p>
+      <p class="big-quote reveal">Arızayı geçici olarak susturmak yerine <em>kaynağına ineriz.</em></p>
+      <p class="big-p reveal">Günhan Marine, Türkiye genelinde hizmet veren mobil bir marine teknik servistir. Mühendislik ekibimizle, usta-mühendis disipliniyle bizzat sahada çözüm üretiriz.</p>
+      <div class="tags reveal" aria-label="Uzmanlık alanları">
+        <span class="tag-pill">Deniz motoru</span><span class="tag-pill">Mekanik sistemler</span><span class="tag-pill">Seyir elektroniği</span><span class="tag-pill">Marine elektrik</span><span class="tag-pill">Karina ve antifouling</span><span class="tag-pill">Alım öncesi ekspertiz</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sss">
+    <div class="wrap split">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <p class="eyebrow">Sık sorulan sorular</p>
+        <h2>Başvurmadan önce bilmek isteyebilecekleriniz</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Sadece motor mu bakıyorsunuz?</summary>
+          <p class="ans">Hayır. Deniz motoru ve sevk sistemlerinin yanında tekne mekanik ve yardımcı sistemler, seyir elektroniği, marine elektrik, karina bakımı ve antifouling, alım öncesi motor ve elektrik ekspertizi sunuyoruz.</p>
+        </details>
+        <details>
+          <summary>Mobil servis ne demek, teknemi getirmem gerekir mi?</summary>
+          <p class="ans">Hayır. Ekip ve ekipman teknenizin bulunduğu yere gelir. Servis marinada, çekek yerinde, tersanede ya da göl kıyısındaki bağlama noktanızda yapılır.</p>
+        </details>
+        <details>
+          <summary>Hizmet talebini nasıl iletirim?</summary>
+          <p class="ans">Telefon, WhatsApp veya e-posta ile ulaşabilirsiniz. Tekne tipini, motor veya sistem bilgisini ve sorunu kısaca yazmanız ilk değerlendirmeyi hızlandırır. Sonrasında tekne yerinde incelenir, iş kapsamı netleşir ve yapılacak işlem size açıkça anlatılır. Aşağıdaki talep formu mesajınızı sizin için hazırlar.</p>
+        </details>
+        <details>
+          <summary>Acil arızada ne kadar sürede gelebilirsiniz?</summary>
+          <p class="ans">Acil arıza taleplerine en kısa sürede dönüş yapılır ve yerinde müdahale için planlama yapılır. En hızlı ulaşım yolu telefon veya WhatsApp'tır.</p>
+        </details>
+        <details>
+          <summary>Hangi bölgelere hizmet veriyorsunuz?</summary>
+          <p class="ans">Türkiye genelinde mobil olarak: marinalarda, çekek yerlerinde ve göl kıyılarında. Hizmet, teknenin bulunduğu konuma göre planlanır.</p>
+        </details>
+        <details>
+          <summary>Gövde veya karina survey (yapısal ekspertiz) yapıyor musunuz?</summary>
+          <p class="ans">Hayır. Mekanik, motor ve elektrik sistemlerine odaklanıyoruz. Gövde, karina ve yapısal survey kapsam dışıdır. İkinci el tekne alımlarında yalnızca motor, mekanik ve elektrik sistemlerinin teknik durumu değerlendirilir.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec talep" id="talep">
+    <div class="wrap grid">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:1.25rem">İletişim</p>
+        <h2>Teknenizde bir sorun mu var? Doğru çözelim.</h2>
+        <div class="contact-list">
+          <div class="contact-item">
+            <div><span class="k">Telefon</span><span class="v" id="phone">+90 531 029 12 84</span></div>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" data-copy="#phone">Kopyala</button>
+              <a class="btn btn-ghost btn-sm" href="tel:+905310291284">Ara</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div><span class="k">E-posta</span><span class="v" id="mail">info@gunhanmarine.com</span></div>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" data-copy="#mail">Kopyala</button>
+              <a class="btn btn-ghost btn-sm" href="mailto:info@gunhanmarine.com">Yaz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel reveal">
+        <form class="form" id="talep-form" novalidate>
+          <div class="row2">
+            <div class="field">
+              <label for="f-hizmet">Hizmet</label>
+              <select id="f-hizmet">
+                <option value="">Seçin</option>
+                <option>Deniz motorları ve sevk sistemleri</option>
+                <option>Tekne mekanik ve yardımcı sistemler</option>
+                <option>Seyir elektroniği ve navigasyon</option>
+                <option>Marine elektrik ve güç yönetimi</option>
+                <option>Karina bakımı ve antifouling</option>
+                <option>Alım öncesi ekspertiz</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-bolge">Tekne nerede?</label>
+              <input id="f-bolge" type="text" placeholder="Örn. Bodrum marina" autocomplete="off">
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="f-tekne">Tekne tipi</label>
+              <input id="f-tekne" type="text" placeholder="Örn. 12 m motoryat" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="f-motor">Motor / sistem</label>
+              <input id="f-motor" type="text" placeholder="Örn. 2 x inboard dizel" autocomplete="off">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-detay">Sorun</label>
+            <textarea id="f-detay" placeholder="Ne oluyor, ne zaman başladı, hangi belirtiler var?"></textarea>
+          </div>
+          <div class="field">
+            <label for="out">Hazırlanan mesaj</label>
+            <div class="preview" id="out" role="status" aria-live="polite"></div>
+          </div>
+          <div class="form-actions">
+            <a class="btn btn-primary" id="wa" href="https://wa.me/905310291284" target="_blank" rel="noopener">WhatsApp'ta aç <span class="arrow" aria-hidden="true">→</span></a>
+            <button class="btn btn-ghost" type="button" id="copy-msg">Mesajı kopyala</button>
+          </div>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Günhan Marine</span>
+    <span>Türkiye geneli mobil servis</span>
+  </div>
+  <div class="wordmark" aria-hidden="true">Günhan Marine</div>
+</footer>
+
+<a class="btn btn-primary fab" id="fab" href="https://wa.me/905310291284" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var TAU = Math.PI * 2;
+
+  /* ---------- Dalga konturları ---------- */
+  var wavesEl = $('#waves'), hero = $('#hero');
+  var W = 0, H = 0, wctx = wavesEl.getContext('2d');
+  var mx = -1, mxs = -1;
+  function sizeWaves() {
+    var r = wavesEl.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    wavesEl.width = Math.max(1, W * dpr | 0); wavesEl.height = Math.max(1, H * dpr | 0);
+    wctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function drawWaves(t) {
+    wctx.clearRect(0, 0, W, H);
+    var N = 26, top = H * 0.46, span = H * 0.54;
+    if (mx >= 0) mxs = mxs < 0 ? mx : mxs + (mx - mxs) * 0.12; else mxs = -1;
+    for (var i = 0; i < N; i++) {
+      var k = i / (N - 1);
+      var y0 = top + span * Math.pow(k, 1.6);
+      var amp = 4 + k * 24;
+      wctx.beginPath();
+      for (var x = 0; x <= W + 8; x += 8) {
+        var px = mxs >= 0 ? Math.exp(-Math.pow((x - mxs) / 240, 2)) : 0;
+        var y = y0
+          + Math.sin(x * 0.006 + t * 0.0007 * (0.6 + k) + i * 0.55) * amp
+          + Math.sin(x * 0.013 - t * 0.0011 + i * 0.9) * amp * 0.45
+          + px * Math.sin(x * 0.03 - t * 0.003 + i) * amp * 0.9;
+        if (x === 0) wctx.moveTo(x, y); else wctx.lineTo(x, y);
+      }
+      var last = i === N - 1;
+      wctx.strokeStyle = last ? 'rgba(215,213,33,0.55)' : 'rgba(79,214,224,' + (0.05 + k * 0.34).toFixed(3) + ')';
+      wctx.lineWidth = last ? 1.4 : 1;
+      wctx.stroke();
+    }
+  }
+  if (fine) {
+    hero.addEventListener('pointermove', function (e) { mx = e.clientX - hero.getBoundingClientRect().left; });
+    hero.addEventListener('pointerleave', function () { mx = -1; });
+  }
+
+  /* ---------- Radar ---------- */
+  var radarEl = $('#radar'), rctx = radarEl.getContext('2d'), RS = 0;
+  /* şematik hizmet noktaları (merkez: tekne) */
+  var cities = [
+    { n: 'MARİNA', x: -62, y: 36, lx: -11, ly: 4, al: 'right' },
+    { n: 'TERSANE', x: 74, y: -52, lx: 11, ly: 4, al: 'left' },
+    { n: 'ÇEKEK', x: -34, y: -88, lx: -11, ly: 4, al: 'right' }
+  ];
+  cities.forEach(function (c) { c.phi = Math.atan2(-c.y, c.x); });
+  function sizeRadar() {
+    var r = radarEl.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    RS = r.width;
+    radarEl.width = Math.max(1, RS * dpr | 0); radarEl.height = Math.max(1, r.height * dpr | 0);
+    rctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function drawRadar(t, still) {
+    var S = RS, c = S / 2, R = S * 0.46, sc = R / 150;
+    rctx.clearRect(0, 0, S, S);
+    // halkalar
+    rctx.lineWidth = 1;
+    for (var i = 1; i <= 5; i++) {
+      rctx.beginPath(); rctx.arc(c, c, R * i / 5, 0, TAU);
+      rctx.strokeStyle = i === 5 ? 'rgba(79,214,224,0.4)' : 'rgba(79,214,224,0.15)'; rctx.stroke();
+    }
+    // eksenler
+    rctx.strokeStyle = 'rgba(79,214,224,0.14)';
+    rctx.beginPath(); rctx.moveTo(c - R, c); rctx.lineTo(c + R, c); rctx.moveTo(c, c - R); rctx.lineTo(c, c + R); rctx.stroke();
+    // derece çentikleri
+    for (var d = 0; d < 360; d += 10) {
+      var a = d * Math.PI / 180, l = d % 30 === 0 ? 9 : 5;
+      rctx.beginPath();
+      rctx.moveTo(c + Math.cos(a) * R, c + Math.sin(a) * R);
+      rctx.lineTo(c + Math.cos(a) * (R + l), c + Math.sin(a) * (R + l));
+      rctx.strokeStyle = 'rgba(160,200,225,0.35)'; rctx.stroke();
+    }
+    // halka etiketleri
+    var fs = Math.max(9, S * 0.025);
+    rctx.font = fs + 'px "JetBrains Mono", monospace';
+    rctx.fillStyle = 'rgba(143,167,182,0.8)'; rctx.textAlign = 'left';
+    rctx.textAlign = 'center'; rctx.fillStyle = 'rgba(79,214,224,0.9)';
+
+    // tarama
+    var theta = still ? -0.6 : ((t / 1000) * (TAU / 9)) % TAU;
+    if (rctx.createConicGradient) {
+      var g = rctx.createConicGradient(theta, c, c);
+      g.addColorStop(0, 'rgba(79,214,224,0)');
+      g.addColorStop(0.78, 'rgba(79,214,224,0)');
+      g.addColorStop(1, 'rgba(79,214,224,0.34)');
+      rctx.fillStyle = g;
+      rctx.beginPath(); rctx.arc(c, c, R, 0, TAU); rctx.fill();
+    }
+    rctx.beginPath(); rctx.moveTo(c, c); rctx.lineTo(c + Math.cos(theta) * R, c + Math.sin(theta) * R);
+    rctx.strokeStyle = 'rgba(79,214,224,0.95)'; rctx.lineWidth = 1.5; rctx.stroke();
+
+    // noktalar
+    cities.forEach(function (p) {
+      var px = c + p.x * sc, py = c - p.y * sc;
+      var delta = ((theta - p.phi) % TAU + TAU) % TAU;
+      var b = still ? 0.7 : Math.exp(-delta * 0.9);
+      var glow = 5 + 16 * b;
+      var gr = rctx.createRadialGradient(px, py, 0, px, py, glow);
+      gr.addColorStop(0, 'rgba(215,213,33,' + (0.55 * b + 0.15).toFixed(3) + ')');
+      gr.addColorStop(1, 'rgba(215,213,33,0)');
+      rctx.fillStyle = gr; rctx.beginPath(); rctx.arc(px, py, glow, 0, TAU); rctx.fill();
+      rctx.beginPath(); rctx.arc(px, py, 3.6, 0, TAU); rctx.fillStyle = '#d7d521'; rctx.fill();
+      rctx.beginPath(); rctx.arc(px, py, 7 + 5 * b, 0, TAU);
+      rctx.strokeStyle = 'rgba(215,213,33,' + (0.25 + 0.5 * b).toFixed(3) + ')'; rctx.lineWidth = 1; rctx.stroke();
+      rctx.textAlign = p.al; rctx.fillStyle = 'rgba(234,242,246,' + (0.6 + 0.4 * b).toFixed(3) + ')';
+      rctx.font = '500 ' + fs + 'px "JetBrains Mono", monospace';
+      rctx.fillText(p.n, px + p.lx, py + p.ly);
+    });
+    // merkez: tekne
+    var pulse = still ? 0.5 : (Math.sin(t / 380) + 1) / 2;
+    rctx.beginPath(); rctx.arc(c, c, 6 + pulse * 6, 0, TAU);
+    rctx.strokeStyle = 'rgba(79,214,224,' + (0.7 - pulse * 0.5).toFixed(3) + ')'; rctx.lineWidth = 1.2; rctx.stroke();
+    rctx.beginPath(); rctx.arc(c, c, 4, 0, TAU); rctx.fillStyle = '#4fd6e0'; rctx.fill();
+    rctx.textAlign = 'center'; rctx.fillStyle = '#eaf2f6'; rctx.font = '500 ' + fs + 'px "JetBrains Mono", monospace';
+    rctx.fillText('TEKNE', c, c + 22);
+  }
+
+  /* ---------- Tek döngü ---------- */
+  var heroVisible = true, raf = 0;
+  function frame(t) {
+    raf = 0;
+    if (heroVisible && !document.hidden) { drawWaves(t); drawRadar(t, false); }
+    if (heroVisible) raf = requestAnimationFrame(frame);
+  }
+  function resizeAll() { sizeWaves(); sizeRadar(); if (reduce) { drawWaves(0); drawRadar(0, true); } }
+  window.addEventListener('resize', resizeAll);
+  resizeAll();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (reduce) drawRadar(0, true); });
+  if (!reduce) {
+    raf = requestAnimationFrame(frame);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        heroVisible = es[0].isIntersecting;
+        if (heroVisible && !raf) raf = requestAnimationFrame(frame);
+      }, { threshold: 0 }).observe(hero);
+    }
+    document.addEventListener('visibilitychange', function () { if (!document.hidden && heroVisible && !raf) raf = requestAnimationFrame(frame); });
+  }
+
+  /* ---------- Kaydırma: ilerleme çubuğu, süreç hattı, WhatsApp düğmesi ---------- */
+  var progress = $('#progress'), fab = $('#fab'), steps = $('#steps'), rail = $('#rail');
+  var stepEls = $$('.step', steps);
+  var ticking = false;
+  function onScroll() {
+    ticking = false;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    progress.style.setProperty('--sp', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
+    fab.classList.toggle('show', window.scrollY > 700);
+    var r = steps.getBoundingClientRect(), vh = window.innerHeight;
+    var p = Math.max(0, Math.min(1, (vh * 0.65 - r.top) / r.height));
+    rail.style.setProperty('--p', p.toFixed(3));
+    rail.parentNode.style.setProperty('--p', p.toFixed(3));
+    rail.style.transform = 'scaleY(' + p.toFixed(3) + ')';
+    stepEls.forEach(function (s, i) {
+      var sr = s.getBoundingClientRect();
+      s.classList.toggle('on', sr.top < vh * 0.72);
+    });
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', req);
+  onScroll();
+
+  /* ---------- Sayaçlar ---------- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        var el = e.target, end = parseInt(el.getAttribute('data-count'), 10), t0 = null;
+        function step(ts) {
+          if (t0 === null) t0 = ts;
+          var k = Math.min(1, (ts - t0) / 1100), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+          el.textContent = v;
+          if (k < 1) requestAnimationFrame(step); else el.textContent = end;
+        }
+        el.textContent = '0';
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    $$('[data-count]').forEach(function (el) { cio.observe(el); });
+  }
+
+  /* ---------- Panel ışığı (imleci izler) ---------- */
+  $$('.tile').forEach(function (t) {
+    t.addEventListener('pointermove', function (e) {
+      var r = t.getBoundingClientRect();
+      t.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      t.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ---------- Mıknatıs etkisi (sadece ana düğmeler, ince imleç) ---------- */
+  if (fine && !reduce) {
+    $$('.btn-primary').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.setProperty('--tx', ((e.clientX - r.left - r.width / 2) * 0.12).toFixed(1) + 'px');
+        b.style.setProperty('--ty', ((e.clientY - r.top - r.height / 2) * 0.22).toFixed(1) + 'px');
+      });
+      b.addEventListener('pointerleave', function () { b.style.setProperty('--tx', '0px'); b.style.setProperty('--ty', '0px'); });
+    });
+  }
+
+  /* ---------- Talep formu ---------- */
+  var f = { hizmet: $('#f-hizmet'), bolge: $('#f-bolge'), tekne: $('#f-tekne'), motor: $('#f-motor'), detay: $('#f-detay') };
+  var out = $('#out'), wa = $('#wa'), status = $('#status'), timer;
+  function say(msg) { status.textContent = msg; clearTimeout(timer); timer = setTimeout(function () { status.textContent = ''; }, 3500); }
+  function build() {
+    var lines = ['Merhaba Günhan Marine,'];
+    if (f.hizmet.value) lines.push('Hizmet: ' + f.hizmet.value);
+    if (f.bolge.value) lines.push('Konum: ' + f.bolge.value);
+    if (f.tekne.value.trim()) lines.push('Tekne: ' + f.tekne.value.trim());
+    if (f.motor.value.trim()) lines.push('Motor / sistem: ' + f.motor.value.trim());
+    if (f.detay.value.trim()) lines.push('Sorun: ' + f.detay.value.trim());
+    if (lines.length === 1) lines.push('Teknem için yerinde servis talep etmek istiyorum.');
+    var msg = lines.join('\n');
+    out.textContent = msg;
+    wa.href = 'https://wa.me/905310291284?text=' + encodeURIComponent(msg);
+    return msg;
+  }
+  function selectNode(el) {
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    say('Metin seçildi, kopyalamak için basılı tutun.');
+  }
+  function copy(text, el, okMsg) {
+    try { navigator.clipboard.writeText(text).then(function () { say(okMsg); }, function () { selectNode(el); }); }
+    catch (e) { selectNode(el); }
+  }
+  Object.keys(f).forEach(function (k) { f[k].addEventListener('input', build); f[k].addEventListener('change', build); });
+  $('#talep-form').addEventListener('submit', function (e) { e.preventDefault(); });
+  $('#copy-msg').addEventListener('click', function () { copy(build(), out, 'Mesaj kopyalandı.'); });
+  $$('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = $(b.getAttribute('data-copy'));
+      copy(el.textContent, el, 'Kopyalandı: ' + el.textContent);
+    });
+  });
+  $$('[data-service]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      f.hizmet.value = b.getAttribute('data-service');
+      build();
+      $('#talep').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      setTimeout(function () { f.bolge.focus({ preventScroll: true }); }, reduce ? 0 : 600);
+    });
+  });
+  build();
+})();
+</script>

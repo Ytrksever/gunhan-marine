@@ -1,0 +1,146 @@
+300|||Questions about Pre-Purchase Survey
+301|||What is a pre-purchase engine and electrical survey?
+302|||An independent mechanical and electrical check carried out before you buy a used boat. The main engines, generators, shaft and gearbox lines, battery banks and electrical panels are inspected, and a detailed technical condition report is prepared.
+303|||Do you also carry out hull/bottom surveys?
+304|||No, they are outside our scope.
+305|||Which checks are carried out in the survey?
+306|||Computer-based fault diagnosis on the main engines and generators, compression tests and physical checks on suitable engines, mechanical checks on shaft and gearbox lines, and electrical inspection of battery banks and panels. A laboratory oil test if requested. The scope is determined by the systems on the boat.
+307|||How long does the report take?
+308|||Within 24 hours after payment is completed. If an oil test is requested, the result time depends on the laboratory and is not included in this period.
+309|||Why does it need to be independent?
+310|||It gives the buyer an impartial technical condition report. Hidden faults become visible before the purchase decision, and you get concrete data for negotiating or for deciding to walk away.
+311|||Can I get an on-site survey in Adana, Mersin and Hatay?
+312|||Yes.
+313|||Does the fee vary with boat size?
+314|||The scope can vary with the number of main engines, generators and electrical systems to be inspected, and with the size of the boat. Once we have the details, the scope and fee are communicated. Contact: +90 531 029 12 84, info@gunhanmarine.com.
+315|||Our guide on this topic
+316|||Scope
+317|||With our technical infrastructure specialised in inboard and outboard marine engines, we offer scheduled maintenance, overhaul, fault diagnosis and genuine spare parts. We help you get maximum power and reliability from your propulsion systems.
+318|||We provide mobile marine service from lake boating in Adana to private yacht and commercial boat owners in Mersin and Hatay.
+319|||Brands we work with
+320|||=
+321|||Questions about Marine Engines & Propulsion Systems
+322|||How do I book a boat engine service in Adana?
+323|||By phone (+90 531 029 12 84) or email (info@gunhanmarine.com). A short note on your boat type, the engine brand and the problem speeds up the first assessment. Service is provided on site in Adana, Mersin and Hatay.
+324|||Which marine engine services do you provide?
+325|||Scheduled maintenance, fault diagnosis, overhaul and genuine spare parts for inboard and outboard engines. The goal is maximum power and reliability from the propulsion system.
+326|||Which marine engine brands do you service?
+327|||Outboard: Yamaha, Mercury, Honda Marine, Suzuki. Inboard: MerCruiser, Volvo Penta, Yanmar, Cummins, John Deere.
+328|||Can I get Yamaha, Mercury, Suzuki or Volvo Penta engine service in Adana?
+329|||Yes. On-site maintenance, fault diagnosis and repair for the brands above in Adana, Mersin and Hatay.
+330|||How does inboard maintenance differ from outboard maintenance?
+331|||An inboard engine sits inside the boat and needs maintenance together with the shaft, gearbox, exhaust and sea-water cooling system. An outboard engine is mounted on the transom; its maintenance concentrates on the engine body, the lower unit (gearbox oil, propeller) and the fuel system. For both, the manufacturer's maintenance schedule is the reference.
+332|||How often should a marine engine be serviced?
+333|||The most reliable source is the manufacturer's maintenance manual. As a general rule: at the running-hour interval in the manual, or at least once a year, preferably at the start of the season. Lightly used boats also need time-based maintenance (oil, coolant, fuel system).
+334|||When is an overhaul needed?
+335|||Low compression, rising oil consumption, white or blue smoke from the exhaust, loss of power and hard starting can be signs. Because these symptoms can also come from simpler faults, diagnosis comes first; the root cause is identified and, if necessary, an overhaul is recommended.
+336|||Is engine fault diagnosis done on site?
+337|||Yes: at the marina, the boat ramp or the lakeshore. The root cause is identified and the solution is explained to you.
+338|||How long does an overhaul take?
+339|||It varies with the engine type, the extent of the fault and parts lead time. After diagnosis, the scope and estimated duration are communicated.
+340|||Do you serve boats on Seyhan Lake in Adana?
+341|||Yes. On-site engine maintenance, fault diagnosis and repair for boats on Seyhan Dam Lake and its surroundings.
+342|||Do you supply genuine spare parts?
+343|||Yes. Which part is needed and why is explained before the work begins.
+344|||=
+345|||Mercury and MerCruiser
+346|||=
+347|||=
+348|||=
+349|||=
+350|||=
+351|||To protect your boat's hydrodynamic performance and fuel efficiency, we carry out hull preparation, osmosis checks, sanding, primer and high-quality antifouling (anti-fouling paint) application to professional standards.
+352|||We provide hull care and antifouling at boatyards in Adana, Mersin and Hatay.
+353|||Sanding
+354|||Primer
+355|||Questions about Hull Care & Antifouling
+356|||What work is done in hull care?
+357|||Hull preparation, osmosis check, sanding, primer and antifouling application. The aim is to protect hydrodynamic performance and fuel efficiency.
+358|||How often should antifouling paint be renewed?
+359|||On most boats at the start of every season, before the boat goes into the water. It varies with the paint product, how heavily the boat is used and the density of algae and marine life in the water; the manufacturer's recommendation and the condition of the hull are the reference.
+360|||What is an osmosis check and why does it matter?
+361|||Osmosis is the formation of blisters under the paint of polyester (fibreglass) hulls because of water penetration; it can occur on boats that stay in the water for long periods. Spotting it early prevents it from progressing. A check is carried out before antifouling and the findings are shared before the work starts.
+362|||Does the boat need to be hauled out for hull care?
+363|||Yes: on land, at the boat ramp or at the shipyard. The service is carried out at boatyards in Adana, Mersin and Hatay.
+364|||We carry out the safe installation and fault finding of AC/DC marine electrical systems, generator maintenance, battery banks, charging systems, inverters and panels. We provide system solutions in line with ABYC standards, protected against fire and voltage loss.
+365|||We provide on-site marine electrical service for private and commercial boats in Adana, Mersin and Hatay.
+366|||=
+367|||Questions about Marine Electrical & Power Management
+368|||Which marine electrical services do you provide?
+369|||AC/DC systems, generator maintenance, battery banks, charging systems, inverter and panel installation, and electrical fault finding. Solutions use ABYC standards as a reference.
+370|||Why does the ABYC standard matter?
+371|||The ABYC (American Boat and Yacht Council) is a US-based organisation that publishes widely accepted safety standards for boat electrical systems. Cable cross-section, fuse and circuit-breaker protection, grounding and battery connections are defined in these standards. Systems that are not installed correctly carry a risk of fire and voltage loss.
+372|||When should a battery bank be replaced?
+373|||When its capacity drops noticeably, when it can no longer hold a charge, or when its voltage falls quickly under load. Lifespan depends on the battery type (lead-acid, AGM, lithium), how heavily it is used and the charging system. Before deciding to replace it, the capacity and the charging system are checked.
+374|||How often should a generator be serviced?
+375|||At the running-hour interval in the manufacturer's manual, and in any case at least once a year. The main items are oil and filter changes, the cooling system and a check of the sea-water pump impeller.
+376|||Why does the battery on my boat drain quickly?
+377|||Common causes are an ageing battery, an inadequate charging system (alternator or charger), leakage current and loads that stay on all the time. The capacity, charging voltage and circuits are checked.
+378|||Can I get on-site service in Adana, Mersin and Hatay?
+379|||Yes. You don't need to move your boat.
+380|||We provide integration of critical navigation systems such as chartplotters, radar, autopilot, AIS, VHF and sonar, plus NMEA 2000 network installation and calibration services. We integrate high-performance devices into your boat with flawless workmanship.
+381|||We provide navigation electronics installation and calibration at marinas in Adana, Mersin and Hatay.
+382|||=
+383|||=
+384|||=
+385|||=
+386|||Questions about Navigation Electronics
+387|||Which devices do you install?
+388|||Chartplotters, radar, autopilot, AIS, VHF and sonar. Integration, NMEA 2000 network installation and calibration; devices are installed on site so that they work compatibly with the existing system.
+389|||Which brands do you work with?
+390|||Garmin, Raymarine, Simrad and Furuno. Compatible devices on an NMEA 2000 network are made to work together.
+391|||What is NMEA 2000 and why is it needed?
+392|||A network standard that lets marine devices share data over a single backbone cable. Because the chartplotter, autopilot, engine gauges and sensors talk on the same network, cable clutter is reduced.
+393|||Can a new chartplotter be integrated into our older boat?
+394|||Often, yes. The existing wiring, power infrastructure and mounting space are assessed. If the older devices use a different data standard (for example NMEA 0183), an interface converter may be needed. The existing system is inspected first.
+395|||Why is calibration necessary?
+396|||Devices such as the autopilot, heading sensor (compass) and speed and depth sensors can give wrong or unstable data if they are not adjusted to the boat after installation.
+397|||Do you install in Adana, Mersin and Hatay?
+398|||Yes, on site at marinas.
+399|||Beyond propulsion systems, we provide engineering solutions for all of your boat's mechanical and hydraulic infrastructure. We carry out the maintenance, repair and replacement of shaft and propeller lines, sea-water valves (seacocks), bilge and fresh-water pumps, steering systems and hydraulic components.
+400|||We provide on-site mechanical service at marinas and lakeshores in Adana, Mersin and Hatay.
+401|||Fresh-water pump
+402|||Steering
+403|||Hydraulics
+404|||Questions about Boat Mechanical & Auxiliary Systems
+405|||How do I book boat mechanical maintenance in Adana?
+406|||By phone (+90 531 029 12 84) or email (info@gunhanmarine.com). A short note on the boat type and the problem (such as shaft vibration, steering play or a pump failure) speeds up the first assessment.
+407|||Why does shaft alignment matter?
+408|||If the shaft and the engine or gearbox axis are misaligned, you get vibration, noise and early wear on the bearing, stuffing box and coupling parts, which leads to more expensive repairs over time. Alignment should be checked when the engine mounts have been changed, when the boat has been hauled out and relaunched, or when you notice vibration in the shaft.
+409|||How often should seacocks be serviced?
+410|||At least once a year, preferably at the start of the season, by opening and closing them to check. Valves that are not moved for a long time can seize. If there is corrosion, a leak or stiff turning, they should be replaced together with the connected hose and clamps. Because this is directly linked to the risk of taking on water, the pre-season check should not be skipped.
+411|||Is a bilge pump failure an emergency?
+412|||If the boat is not taking on water, it may not be an emergency, but it should be fixed without delay. If it is taking on water, the situation is an emergency: first identify the source of the water and put your safety first. If the pump is not working, check the fuse, the wiring connection, the float switch and the battery, and replace the pump if necessary.
+413|||How can I tell there is a problem in the steering system?
+414|||Steering that becomes stiff or too loose, a feeling of play, the boat not turning equally to port and starboard, hydraulic oil leaks and noise while operating. Air in hydraulic systems can also impair the response. A check is needed before going out to sea.
+415|||Can I get on-site mechanical service in Adana, Mersin or Hatay?
+416|||Yes, at marinas and lakeshores. Maintenance, repair and replacement for shaft and propeller lines, seacocks, pumps, steering systems and hydraulic components.
+417|||Across Turkey, in Arab countries, North Africa and the Balkans, we provide Travel Lift installation, hydraulic/mechanical maintenance, fault diagnosis and genuine spare parts.
+418|||We carry out this service through a wide mobile service and supply network covering all of Turkey; on request we also serve marinas and shipyards in Arab countries, North Africa and the Balkans.
+419|||=
+420|||=
+421|||Questions about Travel Lift & Boatyard Equipment
+422|||What does the mobile Travel Lift service cover?
+423|||Installation, hydraulic and mechanical maintenance, fault diagnosis and genuine spare parts for marinas, boat ramps and shipyards; on site, with mobile engineering support.
+424|||Is it only maintenance, or is there new installation as well?
+425|||Both: installation and periodic hydraulic and mechanical maintenance of Travel Lifts and boat transport/hoisting systems; fault diagnosis and spare parts supply.
+426|||Which brands and models of Travel Lift do you work on?
+427|||Cimolai, Ascom, Marine Travel Lift, PDN and BoatLift. Sending the brand, model and capacity speeds up diagnosis and parts supply.
+428|||How quickly do you respond to a fault?
+429|||We reply as soon as possible and plan an on-site response. Send the brand, model and fault symptoms by phone (+90 531 029 12 84) or email (info@gunhanmarine.com).
+430|||How does the process work for requests from outside Turkey?
+431|||The service is carried out through a mobile service and supply network covering all of Turkey; on request it is also provided to marinas and shipyards in Arab countries, North Africa and the Balkans. The request is sent by phone or email, and the scope and planning are clarified together.
+432|||Why is scheduled maintenance important?
+433|||Lifting equipment carries critical loads for the safety of boats and workers. Regular checks of the hydraulic system and hoses, the drive and steering parts, the brakes and the load-bearing elements reduce sudden failures and downtime.
+434|||=
+435|||=
+436|||=
+437|||Text selected. Press and hold to copy.
+438|||Message copied.
+439|||Copied:
+440|||MERSIN
+441|||HATAY
+442|||ADANA
+443|||N
+444|||With marine engineering discipline, <strong>from the marine engine to navigation electronics</strong>, we find the cause of the fault and fix it for good. Our team and equipment come to wherever your boat is.
+445|||Instead of silencing a fault temporarily, <em>we get to its source.</em>

@@ -1,0 +1,150 @@
+0|||=
+1|||Home
+2|||Services
+3|||=
+4|||About
+5|||Contact
+6|||Mobile marine technical service based in Adana
+7|||We get to
+8|||the root
+9|||of the problem.
+10|||Request on-site service
+11|||View services
+12|||SERVICE MAP · SCHEMATIC
+13|||BASE: ADANA
+14|||=
+15|||=
+16|||=
+17|||=
+18|||Marine engines
+19|||Shaft and propeller
+20|||=
+21|||=
+22|||=
+23|||Autopilot
+24|||=
+25|||=
+26|||=
+27|||AC/DC electrical
+28|||Generator
+29|||Battery bank
+30|||Inverter
+31|||=
+32|||Bilge pump
+33|||Osmosis check
+34|||=
+35|||Compression test
+36|||=
+37|||On-site service
+38|||Our team and equipment come to wherever your boat is. You never have to move it.
+39|||Root-cause approach
+40|||Instead of masking the symptom, we find what is causing the fault and apply a lasting fix.
+41|||One team, full scope
+42|||Everything from engines to navigation electronics and Travel Lift is handled by the same engineering team.
+43|||Our services
+44|||All your boat's technical needs under one roof
+45|||Propulsion
+46|||Marine Engines & Propulsion Systems
+47|||Scheduled maintenance, overhaul, fault diagnosis and genuine spare parts for inboard and outboard marine engines.
+48|||View details
+49|||Request
+50|||Mechanical
+51|||Boat Mechanical & Auxiliary Systems
+52|||Maintenance, repair and replacement of shaft and propeller lines, seacocks, bilge and fresh-water pumps, steering systems and hydraulic components.
+53|||Navigation
+54|||Navigation Electronics
+55|||Installation of chartplotters, radar, autopilot, AIS and VHF; NMEA 2000 network integration and calibration.
+56|||=
+57|||Marine Electrical & Power Management
+58|||AC/DC marine electrical work, generator maintenance, battery banks, inverter installation and fault finding. In line with ABYC standards.
+59|||Hull
+60|||Hull Care & Antifouling
+61|||Hull preparation, osmosis checks and high-quality antifouling (anti-fouling paint) application.
+62|||Survey
+63|||Pre-Purchase Survey
+64|||Independent engine, mechanical and electrical survey when buying a used boat. Compression test, fault diagnosis and a detailed report.
+65|||Travel Lift & Boatyard Equipment
+66|||Travel Lift installation, periodic hydraulic and mechanical maintenance, fault diagnosis and OEM spare parts. Across Turkey, with an international network.
+67|||Process
+68|||You don't need to move your boat
+69|||Our team and equipment come to wherever your boat is: the marina, the boat ramp, the shipyard or a mooring on the lakeshore.
+70|||Request
+71|||Contact us by phone, WhatsApp or email. A short note on the boat type, the engine or system and the problem speeds up the first assessment.
+72|||On-site inspection
+73|||The boat is inspected where it lies. We look for the cause of the fault, not just its symptoms.
+74|||Scope and work
+75|||The scope of work is agreed and what will be done is explained to you clearly. Then the solution is carried out on site.
+76|||Service area
+77|||The Eastern Mediterranean coast and Seyhan Dam Lake
+78|||Urgent fault requests are answered as quickly as possible and an on-site response is planned. The fastest way is phone or WhatsApp. Sending the boat's location and the symptoms speeds things up.
+79|||=
+80|||Base. Including Seyhan Dam Lake and its surroundings
+81|||map centre
+82|||Mobile service
+83|||≈ 64 km · from Adana
+84|||≈ 115 km · from Adana
+85|||Distances are approximate straight-line values from Adana city centre; positions on the map are schematic. The mobile Travel Lift service is not regional: it is carried out across Turkey and, on request, in Arab countries, North Africa and the Balkans.
+86|||Günhan Marine is a mobile marine technical service operating in Adana, Mersin and Hatay. With our engineering team, and a master-engineer discipline, we solve problems in person, on site.
+87|||Mission, vision and photos from the field
+88|||Mechanical systems
+89|||Navigation electronics
+90|||Marine electrical
+91|||Hull care and antifouling
+92|||Pre-purchase survey
+93|||Technical notes and guides from the field
+94|||Short, practical articles on engines, electrical systems, navigation electronics and maintenance.
+95|||October 2026
+96|||4 min read
+97|||Engine and electrical checklist when buying a used boat
+98|||What should you check in the engine and electrical systems before you start negotiating? A short guide to verifying the seller's claims with measurable data.
+99|||Read the article
+100|||Marine engine scheduled maintenance guide
+101|||Oil, filters, propeller and the cooling circuit: the essential maintenance at the start and end of the season, and the small details that get overlooked.
+102|||3 min read
+103|||What is a sacrificial anode (zinc) and when should it be replaced?
+104|||When different metals sit together in water, corrosion begins. A sacrificial anode redirects that wear away from your expensive parts and onto itself.
+105|||All articles
+106|||Frequently asked questions
+107|||What you may want to know before getting in touch
+108|||Do you only work on engines?
+109|||No. Besides marine engines and propulsion systems, we offer boat mechanical and auxiliary systems, navigation electronics, marine electrical work, hull care and antifouling, pre-purchase engine and electrical surveys, and a mobile Travel Lift service.
+110|||What does mobile service mean? Do I need to bring my boat?
+111|||No. Our team and equipment come to wherever your boat is. Service is carried out at the marina, the boat ramp, the shipyard or your mooring on the lakeshore.
+112|||How do I send a service request?
+113|||You can reach us by phone, WhatsApp or email. A short note on the boat type, the engine or system and the problem speeds up the first assessment. After that, the boat is inspected on site, the scope of work is agreed and what will be done is explained to you clearly. The request form below prepares your message for you.
+114|||How quickly can you come in an emergency?
+115|||Urgent fault requests are answered as quickly as possible and an on-site response is planned. The fastest way to reach us is by phone or WhatsApp.
+116|||Which areas do you serve?
+117|||Adana (including Seyhan Dam Lake and its surroundings), Mersin and Hatay, on a mobile basis. The mobile Travel Lift service is not regional and is carried out across Turkey.
+118|||Do you carry out hull or structural surveys?
+119|||No. We focus on mechanical, engine and electrical systems. Hull, bottom and structural surveys are outside our scope. When you buy a used boat, we assess only the technical condition of the engine, mechanical and electrical systems.
+120|||Is something wrong with your boat? Let's fix it properly.
+121|||Base
+122|||Adana, Turkey
+123|||Phone
+124|||Copy
+125|||Call
+126|||Email
+127|||Write
+128|||Service
+129|||Select
+130|||Marine engines and propulsion systems
+131|||Boat mechanical and auxiliary systems
+132|||Navigation electronics
+133|||Marine electrical and power management
+134|||Hull care and antifouling
+135|||Travel Lift and boatyard equipment
+136|||Where is your boat?
+137|||Somewhere else
+138|||Boat type
+139|||Engine / system
+140|||Problem
+141|||Prepared message
+142|||The message is prepared in Turkish so that our service team can read it.
+143|||Open in WhatsApp
+144|||Copy message
+145|||=
+146|||Adana · Mersin · Hatay
+147|||Message us on WhatsApp
+148|||Günhan Marine home page
+149|||Main menu

@@ -1,0 +1,150 @@
+150|||Language
+151|||Switch theme
+152|||Menu
+153|||We get to the root of the problem.
+154|||Service area map
+155|||Radar view centred on Adana showing the Mersin and Hatay service points
+156|||Areas of work
+157|||A red-block inboard marine engine seen from the engine room
+158|||Mechanical maintenance in an engine room carried out by a gloved hand
+159|||A motor yacht moored at a pier, with radar and antennas on its mast
+160|||Measuring a boat battery connection with a battery tester
+161|||A worn sacrificial anode (zinc) part
+162|||Two people inspecting the underside of a boat on land
+163|||A boat on a trailer with service equipment laid out around it
+164|||Areas of expertise
+165|||E.g. 12 m motor yacht
+166|||E.g. 2 x inboard diesel
+167|||What is happening, when did it start, what symptoms are there?
+168|||We solve problems on site with engineering discipline.
+169|||Günhan Marine works from expertise grounded in an academic engineering education (ITU), professional chamber membership (the Chamber of Marine Engineers of TMMOB) and the international marine safety standard (ABYC). With our engineering team and a master-engineer discipline, we aim to be the marine technical service brand that private boaters and commercial operators in Adana, Mersin and Hatay trust most, the one that solves the problem correctly the first time you call.
+170|||ITU
+171|||TMMOB Chamber of Marine Engineers
+172|||ABYC standards
+173|||Get a quote
+174|||Mission and vision
+175|||Not a temporary fix, the root cause
+176|||Our mission
+177|||To serve with an engineering discipline that goes to the root cause instead of applying temporary fixes in marine engines, heavy mechanical systems and electrical systems. To give all our customers, from private boats in Adana, Mersin and Hatay to commercial vessels such as workboats and tugs, uninterrupted navigation safety and unconditional trust.
+178|||Our vision
+179|||To become the marine technical service brand that private boaters and commercial operators in Adana, Mersin and Hatay trust most, the one that solves the problem correctly the first time you call, through our engineering team and master-engineer discipline.
+180|||Founder
+181|||=
+182|||A graduate of ITU in Marine Engineering Operations. He holds an MBA and a master's degree in maritime studies. He founded and ran a marine service company in Canada called Alesta Marine, and now brings the experience he gained with North American boat standards to Adana, Mersin and Hatay.
+183|||Photos from the field
+184|||Real jobs, real faults
+185|||Photos taken during diagnosis and maintenance.
+186|||Heat exchanger service
+187|||Generator heat exchanger maintenance
+188|||Generator heat exchanger service
+189|||Yamaha 300-hour service
+190|||Volvo Penta engine manifold replacement
+191|||Starter motor replacement
+192|||Carburettor inspection
+193|||Battery test
+194|||About Günhan Marine
+195|||Who is Günhan Marine?
+196|||A mobile marine technical service operating in Adana, Mersin and Hatay. With its engineering team, it gets to the source of a fault instead of silencing it temporarily, and solves problems on site with a master-engineer discipline. The team and equipment come to wherever the boat is: the marina, the boat ramp or the shipyard.
+197|||Who is the founder and what is his engineering background?
+198|||The founder, Feyyaz Alptekin Günhan, is a graduate of ITU in Marine Engineering Operations and holds an MBA and a master's degree in maritime studies. He founded and ran a marine service company in Canada called Alesta Marine, and now offers the experience he gained with North American boat standards in Adana, Mersin and Hatay.
+199|||What academic and professional foundation does the company have?
+200|||An expertise built on an academic engineering education (ITU), membership of the TMMOB Chamber of Marine Engineers and ABYC standards as a reference. It serves Adana, Mersin and Hatay with an engineering team and a master-engineer discipline.
+201|||Do you serve only private yachts, or commercial vessels as well?
+202|||Both. It serves all customers, from private boats to commercial vessels such as workboats and tugs. The aim is to provide uninterrupted navigation safety in marine engines, heavy mechanical systems and electrical systems.
+203|||What is your approach to work?
+204|||It works with an engineering discipline that goes to the root cause instead of applying temporary fixes. The goal is to be the marine technical service that is trusted in private boating and commercial shipping, and that solves the problem correctly the first time you call.
+205|||Is your team growing?
+206|||Yes. The team plans to grow, and service capacity will increase with the new specialists who join.
+207|||Breadcrumb
+208|||Professional background
+209|||A yacht cruising on calm water close to the shore
+210|||Short, practical articles from the mobile service field on engines, electrical systems, navigation electronics and maintenance.
+211|||Boat battery care and the right way to test it
+212|||A voltmeter tells only half the story. Battery health is measured under load. Here are the basic rules for boat batteries.
+213|||How does an NMEA 2000 network work?
+214|||How do the chartplotter, engine gauges and sensors talk over a single cable? The basic logic of an NMEA 2000 network and common installation mistakes.
+215|||Unlike land engines, marine engines run under constant humidity, salt and varying load. Regular maintenance both reduces the risk of failure and extends the life of the engine. The list below gives a general framework. For exact intervals, the engine manufacturer's manual should be your reference.
+216|||What to do every season
+217|||Changing the engine oil and oil filter.
+218|||Checking and changing the fuel filter and water separator.
+219|||Checking the raw-water pump impeller. A torn impeller can end cooling in an instant.
+220|||Checking belt tension and cracks.
+221|||Checking the coolant level and the antifreeze ratio.
+222|||Checking hoses, clamps and connections.
+223|||Easily overlooked details
+224|||Sacrificial anodes, the exhaust elbow and the heat exchanger wear quietly. These parts are often not checked until something fails. A short visual check at the start of the season can prevent an expensive intervention mid-season.
+225|||Winterising and long periods of non-use
+226|||If the boat will not be used for a long time, the fuel system and the cooling circuit need protecting. Flushing the engine with fresh water, changing the oil and keeping the battery on charge are the basic steps.
+227|||When to call a specialist
+228|||If the engine produces more smoke than expected.
+229|||If the temperature gauge reads higher than normal.
+230|||If the oil pressure is dropping or fluctuating.
+231|||If there is an unusual noise or vibration.
+232|||If you notice any of these signs, stop the engine without forcing it and tell the technical service. Early intervention often prevents damage that would otherwise need an overhaul.
+233|||Need on-site support with this?
+234|||More articles
+235|||Keep reading
+236|||A used boat can hide expensive surprises in the engine room even if it looks clean from the outside. If someone independent checks the engine and electrical systems before you decide to buy, you both strengthen your negotiating position and protect yourself from unexpected costs.
+237|||What to check on the engine
+238|||Compression test: The difference between cylinders is the clearest clue to the engine's internal health.
+239|||Cold start: Note it down if the engine struggles on the first start, smokes or runs unevenly.
+240|||Exhaust colour: Bluish smoke can point to oil burning, white smoke to a coolant leak, and black smoke to a fuel or air imbalance.
+241|||Oil and coolant: If the oil looks milky or there are traces of oil in the coolant, a deeper inspection is needed.
+242|||Shaft and propeller line: Vibration, noise and water leakage points should be checked.
+243|||Running hours: Do the hour meter and the maintenance records agree with each other?
+244|||What to check on the electrical system
+245|||Battery bank: Batteries should be tested under load. A voltage reading alone is not enough.
+246|||Charging system: Do the alternator, the charger and the shore power connection work correctly?
+247|||Panel and wiring: Corrosion, signs of overheating, non-standard splices and careless connections are warning signs of faults.
+248|||Additional equipment: Look at the connection quality of the inverter, the generator and any devices added later.
+249|||Why is the report important?
+250|||A written report with photos records every finding that was seen. That way you have concrete data when discussing the sale price. If the report separates urgent, near-term and monitor-only findings, you can plan your budget correctly.
+251|||Hull and bottom surveys (structural surveys) are a separate field of expertise and are outside our scope. We assess the technical condition of the engine, mechanical and electrical systems.
+252|||Metals in water are in an electrochemical relationship. When different metals such as the propeller, shaft, rudder and engine are together, the more active metal starts to corrode. A sacrificial anode is deliberately made from a more active metal, and it takes on this corrosion to protect the valuable parts.
+253|||Which anode for which water?
+254|||Salt water: Zinc or aluminium anodes are used.
+255|||Fresh water (lake, dam): Magnesium anodes are more suitable. Zinc can lose its effectiveness over time in fresh water.
+256|||Brackish water (river mouth): Aluminium is usually preferred.
+257|||The water your boat sits in is the first criterion for choosing the right anode. If the same boat moves from fresh water to salt water, the anode choice should be reviewed as well.
+258|||When should it be replaced?
+259|||An anode is due for replacement when about half of it has dissolved. An anode with a crusted surface, or one that is painted or heavily worn, may also not be doing its job. It should be checked at least once a year, when the boat is hauled out. On heavily used boats it may need checking more often.
+260|||Common mistakes
+261|||Painting over the anode. Paint makes the anode useless.
+262|||Fitting the anode loosely or with poor contact. A good electrical connection is essential.
+263|||Looking only at the anode and not checking the bonding lines.
+264|||Choosing the wrong material for the water.
+265|||A worn anode shows that the system is working. The real problem is an anode that never wears, or unexpected signs of corrosion on the parts. In that case the bonding and grounding lines should be inspected.
+266|||NMEA 2000 is the standard that lets a boat's navigation and engine devices communicate over a single shared network. Instead of wiring each device separately, all of them connect to a backbone. This reduces cable clutter and makes adding new devices easier.
+267|||The basic parts of the network
+268|||Backbone: The shared cable that runs the length of the boat.
+269|||T-connectors: The points where devices connect to the backbone.
+270|||Terminators: There is one at each end of the backbone.
+271|||Power supply: The network is supplied with 12 volts from a single point.
+272|||Leaving out a terminator, or using more than two.
+273|||Making the device connection cables (drops) unnecessarily long.
+274|||Powering the network from more than one point.
+275|||Not checking compatibility between devices from different brands beforehand.
+276|||The symptoms of these mistakes are often gauges that work intermittently, data that disappears, or devices that cannot see each other. The problem is usually not in the device, but in how the network was installed.
+277|||Why is calibration important?
+278|||The compass, autopilot and speed sensors must be calibrated after installation. An uncalibrated system displays wrong data even when it works correctly. Installing and calibrating together matters for safe navigation.
+279|||Most brands such as Garmin, Raymarine, Simrad and Furuno work with NMEA 2000. Checking whether a new device is compatible with your existing network before you buy it reduces problems later.
+280|||Most electrical faults on a boat start with the battery. A weak battery can cause the engine not to start, devices to switch off on their own and misleading fault symptoms. That is why battery care, however simple it seems, is the foundation of the system.
+281|||The difference between a starter battery and a service battery
+282|||A starter battery delivers a high current for a short time to start the engine. A service (deep-cycle) battery feeds loads such as lights, the refrigerator and electronic devices over a long period. Mixing the two shortens their life. If possible, two separate battery groups should be used.
+283|||Voltage alone is not enough
+284|||A rested, fully charged lead-acid battery reads about 12.6 to 12.8 volts. Around 12 volts indicates a serious discharge. However, voltage does not show how the battery will behave under load. A battery that looks healthy can collapse quickly once a load is applied. That is why a load test, or a capacity check with a testing device, is needed.
+285|||Basic maintenance steps
+286|||Keep the terminals clean and tight. White or green deposits create resistance.
+287|||Check the battery hold-downs and the ventilation.
+288|||Make sure the charger is set to the profile that suits the battery type.
+289|||If the boat will not be used for a long time, disconnect the battery at the main switch or keep it on a maintenance charge.
+290|||Do not combine batteries of different age and type in the same bank.
+291|||When should a battery be replaced?
+292|||It is time to replace it if it drains quickly despite charging, fails the load test, or has swelling or leaks in its case. Age and usage pattern matter as well.
+293|||If you want to enlarge the battery bank or add an inverter, the cable sizes, fuses and charging arrangement should be planned together. In marine electrical work these parts are assessed as a whole, not one by one.
+294|||When you buy a used boat, we offer an independent mechanical survey to clarify the state of the propulsion and electrical infrastructure. By running computer-based fault diagnosis, compression tests and physical checks on main engines, generators, shaft and gearbox lines, battery banks and marine electrical panels, we provide a detailed technical condition report.
+295|||We provide independent, on-site surveys in Adana, Mersin and Hatay. This service covers only the technical assessment of the mechanical, engine and electrical systems. It does not include hull/bottom or structural survey services.
+296|||Computer-based diagnosis
+297|||Report: 24 hours after payment
+298|||Hull survey not included
+299|||Other services
