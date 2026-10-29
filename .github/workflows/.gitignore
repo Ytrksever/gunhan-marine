@@ -1,8 +1,0 @@
-build/*.html
-build/blog/
-build/hizmetler/
-build/i18n/
-site/
-__pycache__/
-*.pyc
-indexnow_urls.json
