@@ -1,0 +1,10 @@
+634|||NAVIGATION
+635|||ELECTRICAL
+636|||BATTERY
+637|||ENGINE
+638|||PROPELLER
+639|||BOAT SCAN · SCHEMATIC
+640|||Full scan
+641|||engine, electrical, navigation
+642|||across Turkey
+643|||Radar view of a boat scan: navigation, electrical, battery, engine and propeller points

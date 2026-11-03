@@ -1904,5 +1904,35 @@
 },
 {
 "k": "TERSANE"
+},
+{
+"k": "SEYİR"
+},
+{
+"k": "ELEKTRİK"
+},
+{
+"k": "AKÜ"
+},
+{
+"k": "MOTOR"
+},
+{
+"k": "PERVANE"
+},
+{
+"k": "TEKNE TARAMASI · ŞEMATİK"
+},
+{
+"k": "Tam tarama"
+},
+{
+"k": "motor, elektrik, seyir"
+},
+{
+"k": "Türkiye geneli"
+},
+{
+"k": "Radar görünümünde tekne taraması: seyir, elektrik, akü, motor ve pervane noktaları"
 }
 ]

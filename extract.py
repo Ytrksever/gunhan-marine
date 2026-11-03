@@ -7,7 +7,7 @@ B = SP + '/build'
 norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 LETTER = re.compile(r'[^\W\d_]')
 SKIP = {'script', 'style', 'noscript', 'textarea'}
-EXTRA = ['MARİNA', 'TERSANE', 'ÇEKEK', 'TEKNE', 'Lütfen "Ben robot değilim" kutusunu işaretleyin.', 'Lütfen adınızı ve telefon numaranızı yazın.', 'Gönderiliyor…', 'Talebiniz iletildi. En kısa sürede sizi arayacağız.', 'Gönderilemedi. Lütfen WhatsApp veya telefonla ulaşın.', 'Metin seçildi, kopyalamak için basılı tutun.', 'Mesaj kopyalandı.', 'Kopyalandı:', 'MERSİN', 'HATAY', 'ADANA', 'K']
+EXTRA = ['MARİNA', 'TERSANE', 'ÇEKEK', 'TEKNE', 'SEYİR', 'ELEKTRİK', 'AKÜ', 'MOTOR', 'PERVANE', 'Lütfen "Ben robot değilim" kutusunu işaretleyin.', 'Lütfen adınızı ve telefon numaranızı yazın.', 'Gönderiliyor…', 'Talebiniz iletildi. En kısa sürede sizi arayacağız.', 'Gönderilemedi. Lütfen WhatsApp veya telefonla ulaşın.', 'Metin seçildi, kopyalamak için basılı tutun.', 'Mesaj kopyalandı.', 'Kopyalandı:', 'MERSİN', 'HATAY', 'ADANA', 'K']
 
 pages = ['index.html', 'hakkimizda.html', 'blog.html']
 pages += sorted('blog/' + f for f in os.listdir(B + '/blog'))

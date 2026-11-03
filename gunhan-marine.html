@@ -319,11 +319,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
 
       <aside class="radar-card" aria-label="Hizmet noktaları">
-        <div class="radar-head mono"><span>HİZMET NOKTALARI · ŞEMATİK</span><span class="live"><i></i>TÜRKİYE GENELİ</span></div>
-        <canvas id="radar" role="img" aria-label="Radar görünümünde marina, çekek yeri ve tersane hizmet noktaları"></canvas>
+        <div class="radar-head mono"><span>TEKNE TARAMASI · ŞEMATİK</span><span class="live"><i></i>TÜRKİYE GENELİ</span></div>
+        <canvas id="radar" role="img" aria-label="Radar görünümünde tekne taraması: seyir, elektrik, akü, motor ve pervane noktaları"></canvas>
         <div class="radar-foot">
-          <div><b>Marina</b><span>yerinde servis</span></div>
-          <div><b>Çekek yeri</b><span>yerinde servis</span></div>
+          <div><b>Tam tarama</b><span>motor, elektrik, seyir</span></div>
+          <div><b>Yerinde servis</b><span>Türkiye geneli</span></div>
         </div>
       </aside>
     </div>
@@ -617,11 +617,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
   /* ---------- Radar ---------- */
   var radarEl = $('#radar'), rctx = radarEl.getContext('2d'), RS = 0;
-  /* şematik hizmet noktaları (merkez: tekne) */
+  /* tekne taraması: gövde içindeki sistem noktaları (merkez: tekne) */
   var cities = [
-    { n: 'MARİNA', x: -62, y: 36, lx: -11, ly: 4, al: 'right' },
-    { n: 'TERSANE', x: 74, y: -52, lx: 11, ly: 4, al: 'left' },
-    { n: 'ÇEKEK', x: -34, y: -88, lx: -11, ly: 4, al: 'right' }
+    { n: 'SEYİR', x: 0, y: 56, lx: 12, ly: 4, al: 'left' },
+    { n: 'ELEKTRİK', x: -14, y: 26, lx: -12, ly: 4, al: 'right' },
+    { n: 'AKÜ', x: 14, y: 0, lx: 12, ly: 4, al: 'left' },
+    { n: 'MOTOR', x: -14, y: -26, lx: -12, ly: 4, al: 'right' },
+    { n: 'PERVANE', x: 0, y: -54, lx: 12, ly: 4, al: 'left' }
   ];
   cities.forEach(function (c) { c.phi = Math.atan2(-c.y, c.x); });
   function sizeRadar() {
@@ -655,6 +657,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     rctx.font = fs + 'px "JetBrains Mono", monospace';
     rctx.fillStyle = 'rgba(143,167,182,0.8)'; rctx.textAlign = 'left';
     rctx.textAlign = 'center'; rctx.fillStyle = 'rgba(79,214,224,0.9)';
+
+    // tekne gövdesi (üstten görünüş, pruva yukarıda)
+    function hp(x, y) { return [c + x * sc, c - y * sc]; }
+    var hb = hp(0, 80), hr1 = hp(34, 44), hr2 = hp(31, -34), hr3 = hp(25, -64), hl3 = hp(-25, -64), hl2 = hp(-31, -34), hl1 = hp(-34, 44);
+    rctx.beginPath(); rctx.moveTo(hb[0], hb[1]);
+    rctx.quadraticCurveTo(hr1[0], hr1[1], hr2[0], hr2[1]); rctx.lineTo(hr3[0], hr3[1]); rctx.lineTo(hl3[0], hl3[1]); rctx.lineTo(hl2[0], hl2[1]);
+    rctx.quadraticCurveTo(hl1[0], hl1[1], hb[0], hb[1]); rctx.closePath();
+    rctx.fillStyle = 'rgba(79,214,224,0.05)'; rctx.fill();
+    rctx.strokeStyle = 'rgba(160,200,225,0.45)'; rctx.lineWidth = 1.2; rctx.stroke();
+    rctx.beginPath(); rctx.moveTo(c, hp(0, 80)[1]); rctx.lineTo(c, hp(0, -64)[1]);
+    rctx.strokeStyle = 'rgba(160,200,225,0.18)'; rctx.setLineDash([3, 4]); rctx.lineWidth = 1; rctx.stroke(); rctx.setLineDash([]);
 
     // tarama
     var theta = still ? -0.6 : ((t / 1000) * (TAU / 9)) % TAU;
@@ -692,7 +705,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     rctx.strokeStyle = 'rgba(79,214,224,' + (0.7 - pulse * 0.5).toFixed(3) + ')'; rctx.lineWidth = 1.2; rctx.stroke();
     rctx.beginPath(); rctx.arc(c, c, 4, 0, TAU); rctx.fillStyle = '#4fd6e0'; rctx.fill();
     rctx.textAlign = 'center'; rctx.fillStyle = '#eaf2f6'; rctx.font = '500 ' + fs + 'px "JetBrains Mono", monospace';
-    rctx.fillText('TEKNE', c, c + 22);
+    rctx.fillText('TEKNE', c, c + 100 * sc);
   }
 
   /* ---------- Tek döngü ---------- */

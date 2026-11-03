@@ -695,7 +695,7 @@ for lit, key in [("'#d7d521'", 'yel'), ("'#4fd6e0'", 'teal'), ("'#eaf2f6'", 'ink
     js = js.replace(lit, "'rgb(' + P.%s + ')'" % key)
 js = js.replace('px "JetBrains Mono", monospace\'', "px ' + FF()")
 for a, b in [("rctx.fillText(p.n, px + p.lx, py + p.ly);", "rctx.fillText(T(p.n), px + p.lx, py + p.ly);"),
-             ("rctx.fillText('TEKNE', c, c + 22);", "rctx.fillText(T('TEKNE'), c, c + 22);"),
+             ("rctx.fillText('TEKNE', c, c + 100 * sc);", "rctx.fillText(T('TEKNE'), c, c + 100 * sc);"),
              ("say('Metin seçildi, kopyalamak için basılı tutun.');", "say(T('Metin seçildi, kopyalamak için basılı tutun.'));"),
              ("copy(build(), out, 'Mesaj kopyalandı.')", "copy(build(), out, T('Mesaj kopyalandı.'))"),
              ("copy(el.textContent, el, 'Kopyalandı: ' + el.textContent)", "copy(el.textContent, el, T('Kopyalandı:') + ' ' + el.textContent)"),
