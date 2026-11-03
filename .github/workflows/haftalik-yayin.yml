@@ -1,7 +1,7 @@
 name: Haftalık blog yayını
 on:
   schedule:
-    - cron: '0 6 * * 1'   # her Pazartesi 09:00 (Türkiye saati)
+    - cron: '23 5 * * *'   # her gün 08:23 (Türkiye saati)
   workflow_dispatch: {}
 jobs:
   yayinla:
