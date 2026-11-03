@@ -15,7 +15,7 @@ open(KEYFILE, 'w').write(KEY)
 
 # ---------- favicon (logodaki amblem) ----------
 lg = Image.open(f'{SRC}/images/logo-gunhan-koyu.png').convert('RGBA')
-emb = lg.crop((0, 0, 282, 278)); emb.paste((0, 0, 0, 0), (238, 0, 282, 32)); emb = emb.crop(emb.getbbox())
+emb = lg.crop((0, 0, 278, 278)); emb.paste((0, 0, 0, 0), (212, 0, 278, 60)); emb = emb.crop(emb.getbbox())  # 278 px: 'G' harfinin başladığı yerde kes
 def icon(n):
     c = Image.new('RGBA', (n, n), (255, 255, 255, 255)); m = int(n * .14)
     e = emb.copy(); e.thumbnail((n - 2 * m, n - 2 * m), Image.LANCZOS)

@@ -124,7 +124,7 @@ nav.main a:hover { color: var(--ink); background: rgba(255,255,255,.06); }
 .radar-head .live { display: inline-flex; align-items: center; gap: .5rem; color: var(--teal); }
 .radar-head .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 1.8s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(79,214,224,.6); } 50% { opacity: .5; box-shadow: 0 0 0 7px rgba(79,214,224,0); } }
-#radar { display: block; width: 100%; aspect-ratio: 1; max-height: 470px; margin-inline: auto; }
+#radar { display: block; width: min(100%, 470px); aspect-ratio: 1; margin-inline: auto; }
 .radar-foot { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
 .radar-foot div { padding: .8rem 1.1rem; border-left: 1px solid var(--line); min-width: 0; }
 .radar-foot div:first-child { border-left: 0; }
