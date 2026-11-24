@@ -94,7 +94,7 @@ DARK = """
 LIGHT = """
   --bg: #f3f7fa; --bg2: #e8f0f5; --surface: #ffffff; --surface2: #dde8ef;
   --ink: #0b1b2b; --muted: #475d6e; --line: rgba(11, 40, 64, .14); --line-strong: rgba(11, 40, 64, .32);
-  --teal: #0a7f8e; --accent: #d7d521; --accent-hover: #c8c614; --on-accent: #06202f; --accent-text: #6b6a00; --focus: #0b5bd3;
+  --teal: #07707e; --accent: #d7d521; --accent-hover: #c8c614; --on-accent: #06202f; --accent-text: #6b6a00; --focus: #0b5bd3;
   --header-bg: rgba(243, 247, 250, .78); --hover: rgba(11,40,64,.06); --hover-soft: rgba(11,40,64,.03);
   --ghost-bg: rgba(255,255,255,.7); --ghost-hover-bg: #ffffff; --ghost-hover-border: rgba(11,27,43,.5);
   --sheen: rgba(255,255,255,0); --teal-soft: rgba(10,127,142,.09); --tile-glow: rgba(10,127,142,.13); --tile-hover-border: rgba(10,127,142,.5);
@@ -166,6 +166,10 @@ for a, b in REPL:
 assert 'rgba(255,255,255,.0' not in css.replace('rgba(255,255,255,.6)', '') or True
 
 EXTRA_CSS = """
+.skip { position: absolute; inset-inline-start: .75rem; top: -4rem; z-index: 100; padding: .7rem 1.1rem; border-radius: 10px; background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none; }
+.skip:focus { top: calc(.75rem + env(safe-area-inset-top, 0px)); }
+main:focus { outline: none; }
+
 /* ---- Üst bar araçları, mobil menü ---- */
 .hd-right { display: flex; align-items: center; gap: .5rem; }
 .brand-logo { display: block; height: 34px; width: auto; }
@@ -198,7 +202,7 @@ nav.main a[aria-current="page"] { color: var(--ink); background: var(--hover); }
 .values .wrap { display: grid; gap: 0; padding-block: 2.5rem; }
 .val { display: grid; gap: .6rem; justify-items: start; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
 .val:last-child { border-bottom: 0; }
-.val h3 { font-size: clamp(1.4rem, 3.2vw, 1.75rem); line-height: 1.05; margin-top: .35rem; }
+.val h2 { font-size: clamp(1.4rem, 3.2vw, 1.75rem); line-height: 1.05; margin-top: .35rem; }
 .val p { color: var(--muted); max-width: 22rem; }
 @media (min-width: 860px) {
   .values .wrap { grid-template-columns: repeat(3, 1fr); }
@@ -217,7 +221,7 @@ nav.main a[aria-current="page"] { color: var(--ink); background: var(--hover); }
   .t-a .tile-media::after, .t-d .tile-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--surface) 0%, transparent 38%); pointer-events: none; }
 }
 .crumb { display: flex; flex-wrap: wrap; gap: .5rem; font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.crumb a { text-decoration: none; transition: color 160ms ease-out; }
+.crumb a { text-decoration: none; transition: color 160ms ease-out; display: inline-flex; align-items: center; min-height: 24px; padding-block: .3rem; }
 .crumb a:hover { color: var(--teal); }
 .page-hero { position: relative; isolation: isolate; overflow: clip; border-bottom: 1px solid var(--line);
   background: radial-gradient(800px 420px at 90% -10%, var(--glow-t1), transparent 62%), radial-gradient(600px 400px at 0% 110%, var(--glow-y1), transparent 60%), var(--bg); }
@@ -282,7 +286,7 @@ nav.main a[aria-current="page"] { color: var(--ink); background: var(--hover); }
 .pc-body { display: flex; flex-direction: column; gap: .7rem; padding: 1.25rem 1.4rem 1.5rem; flex: 1; }
 .pc-meta { display: flex; flex-wrap: wrap; gap: .3rem .7rem; align-items: center; font-family: var(--mono); font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .pc-meta b { color: var(--teal); font-weight: 500; }
-.post-card h3 { font-size: 1.45rem; line-height: 1.1; }
+.post-card h3, .post-card h2 { font-size: 1.45rem; line-height: 1.1; }
 .post-card p { color: var(--muted); font-size: 1rem; }
 .pc-more { margin-top: auto; padding-top: .35rem; font-weight: 600; color: var(--teal); display: inline-flex; gap: .5rem; }
 .post-card:hover .arrow { transform: translateX(4px); }
@@ -358,7 +362,7 @@ html.i18n-pending body { visibility: hidden; }
 
 # ---------- Ortak betikler ----------
 INIT_JS = ('<script>(function(){var d=document.documentElement;try{var th=localStorage.getItem("gm-theme");if(th==="light"||th==="dark")d.setAttribute("data-theme",th);'
-           'var l=localStorage.getItem("gm-lang");if(l&&/^(en|ru|ar)$/.test(l)){d.lang=l;d.dir=l==="ar"?"rtl":"ltr";d.classList.add("i18n-pending");setTimeout(function(){d.classList.remove("i18n-pending")},2500);return;}}catch(e){}d.lang="tr";d.dir="ltr";})();'
+           'var l=localStorage.getItem("gm-lang");if(!d.hasAttribute("data-static")&&l&&/^(en|ru|ar)$/.test(l)){location.replace("/"+l+location.pathname+location.search+location.hash);return;}}catch(e){}var s=d.getAttribute("data-static")||"tr";d.lang=s;d.dir=s==="ar"?"rtl":"ltr";})();'
            '(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";}catch(e){}function top(){if(location.hash)return;window.scrollTo(0,0);document.documentElement.scrollTop=0;if(document.body)document.body.scrollTop=0;}top();document.addEventListener("DOMContentLoaded",top);window.addEventListener("load",function(){top();setTimeout(top,60);setTimeout(top,250);});window.addEventListener("pageshow",top);})();</script>')
 
 COMMON_JS = r"""
@@ -367,7 +371,7 @@ COMMON_JS = r"""
   var doc = document, root = doc.documentElement;
   var DIR = { tr: 'ltr', en: 'ltr', ru: 'ltr', ar: 'rtl' };
   var FONT = { ru: 'https://fonts.googleapis.com/css2?family=Onest:wght@300..800&display=swap', ar: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap' };
-  var base = doc.body.getAttribute('data-root') || '', VER = '@@VER@@';
+  var base = (doc.getElementById('gm-root') || doc.body).getAttribute('data-root') || '', VER = '@@VER@@';
   var lang = 'tr', dict = null, cache = {}, fonts = {};
   var has = function (o, k) { return Object.prototype.hasOwnProperty.call(o, k); };
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -435,7 +439,11 @@ COMMON_JS = r"""
   window.GM = { t: t, setLang: setLang };
 
   var sel = doc.getElementById('lang-sel');
-  if (sel) sel.addEventListener('change', function () { setLang(sel.value, true); });
+  if (sel) sel.addEventListener('change', function () {
+    var c = sel.value; store('gm-lang', c);
+    var p = location.pathname.replace(/^\/(en|ru|ar)(?=\/|$)/, '') || '/';
+    location.href = (c === 'tr' ? '' : '/' + c) + p + location.search + location.hash;
+  });
 
   /* Tema */
   var tb = doc.getElementById('theme-btn'), mql = window.matchMedia('(prefers-color-scheme: light)');
@@ -458,7 +466,8 @@ COMMON_JS = r"""
   }
 
   var stored = read('gm-lang');
-  setLang(stored && has(DIR, stored) ? stored : 'tr', false);
+  var PL = root.getAttribute('data-static');
+  setLang(PL || (stored && has(DIR, stored) ? stored : 'tr'), false);
 })();
 """.replace('@@VER@@', VER)
 
@@ -596,12 +605,12 @@ def header(prefix, current, is_index=False):
             '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>'
             '</div></div></header>') % dict(p=prefix, lw=lw, links=links)
 
-def post_card(p, base_blog, base_img):
+def post_card(p, base_blog, base_img, hx='h3'):
     w, h = dims('images/' + p['img'])
     return ('<a class="post-card reveal" href="%s%s.html"><div class="pc-img"><img src="%s%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async"></div>'
-            '<div class="pc-body"><div class="pc-meta"><b>%s</b><span data-nt>%s</span><span>%s</span></div><h3>%s</h3><p>%s</p>'
+            '<div class="pc-body"><div class="pc-meta"><b>%s</b><span data-nt>%s</span><span>%s</span></div><%s>%s</%s><p>%s</p>'
             '<span class="pc-more">Yazıyı oku <span class="arrow" aria-hidden="true">→</span></span></div></a>') % (
-        base_blog, p['slug'], base_img, p['img'], qesc(p['alt']), w, h, esc(p['cat']), p['date_label'], esc(p['read']), esc(p['title']), esc(p['excerpt']))
+        base_blog, p['slug'], base_img, p['img'], qesc(p['alt']), w, h, esc(p['cat']), p['date_label'], esc(p['read']), hx, esc(p['title']), hx, esc(p['excerpt']))
 
 # patchler
 hdr_re = re.compile(r'<header class="top">.*?</header>', re.S)
@@ -630,7 +639,7 @@ VALUES = [
     ('<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2.3 2.3L15.5 10"/>', 'Tek ekip, tam kapsam', 'Motordan seyir elektroniğine kadar tüm işler aynı mühendislik ekibinde.'),
 ]
 vals = ('<section class="values"><div class="wrap">' + ''.join(
-    '<div class="val reveal"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true">%s</svg></div><h3>%s</h3><p>%s</p></div>' % (ic, t, d) for ic, t, d in VALUES)
+    '<div class="val reveal"><div class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true">%s</svg></div><h2>%s</h2><p>%s</p></div>' % (ic, t, d) for ic, t, d in VALUES)
     + '</div></section>')
 index, nst = re.subn(r'<section class="stats">.*?</section>', lambda m: vals, index, count=1, flags=re.S)
 assert nst == 1
@@ -705,12 +714,14 @@ for a, b in [("rctx.fillText(p.n, px + p.lx, py + p.ly);", "rctx.fillText(T(p.n)
 assert js.count("'rgba(' + P.") >= 10
 js = patch_form(js)
 
+SKIP = '<a class="skip" href="#top">İçeriğe geç</a>'
+
 def assemble_index():
     head = ('<title>Günhan Marine</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">\n')
-    return (head + INIT_JS + '\n<style>' + css + EXTRA_CSS + '</style>\n<div data-root="" id="gm-root" hidden></div>\n' + index.replace('<main id="top">', '<main id="top">', 1)
-            + '\n<script>' + COMMON_JS.replace("doc.body.getAttribute('data-root') || ''", "''") + '</script>\n<script>\n' + js + '\n</script>\n')
+    return (head + INIT_JS + '\n<style>' + css + EXTRA_CSS + '</style>\n<div data-root="" id="gm-root" hidden></div>\n' + SKIP + index.replace('<main id="top">', '<main id="top" tabindex="-1">', 1)
+            + '\n<script>' + COMMON_JS + '</script>\n<script>\n' + js + '\n</script>\n')
 open(OUT + '/index.html', 'w', encoding='utf-8').write(assemble_index())
 
 # ---------- Alt sayfalar ----------
@@ -729,7 +740,7 @@ HEAD = ('<!doctype html><html lang="tr"><head><meta charset="utf-8">'
 
 def page(title, body, root_prefix, service_value=None):
     attr = ' data-root="%s"' % root_prefix + (' data-service="%s"' % service_value if service_value else '')
-    return HEAD.replace('@@TITLE@@', esc(title)) + '<body%s>' % attr + body + '<script>' + COMMON_JS + '</script><script>' + SUB_JS + '</script></body></html>'
+    return HEAD.replace('@@TITLE@@', esc(title)) + '<body%s>' % attr + SKIP + body.replace('<main id="top">', '<main id="top" tabindex="-1">') + '<script>' + COMMON_JS + '</script><script>' + SUB_JS + '</script></body></html>'
 
 def faq_html(items, open_first=True):
     parts = ['<details%s><summary>%s</summary><p class="ans">%s</p></details>' % (' open' if (open_first and i == 0) else '', esc(q), esc(a)) for i, (q, a) in enumerate(items)]
@@ -812,11 +823,11 @@ blog_body = (header('', 'blog') +
     '<main id="top"><section class="page-hero"><div class="wrap">'
     '<nav class="crumb" aria-label="Sayfa yolu"><a href="index.html">Anasayfa</a><span>/</span><span>Blog</span></nav>'
     '<h1>Sahadan teknik notlar ve rehberler</h1>'
-    '<p class="lead">Mobil servis sahasından: motor, elektrik, seyir elektroniği ve bakım üzerine kısa, uygulanabilir yazılar.</p>'
+    '<p class="lead">Mobil servis sahasından: motor, elektrik, seyir elektroniği ve karina bakımı üzerine kısa, uygulanabilir yazılar. Arıza belirtileri, bakım aralıkları ve ilk kontroller.</p>'
     '</div></section>'
-    '<section class="sec"><div class="wrap"><div class="posts">' + ''.join(post_card(p, 'blog/', 'images/') for p in POSTS) + '</div></div></section>'
+    '<section class="sec"><div class="wrap"><div class="posts">' + ''.join(post_card(p, 'blog/', 'images/', 'h2') for p in POSTS) + '</div></div></section>'
     + talep + '</main>' + footer + fab)
-open(OUT + '/blog.html', 'w', encoding='utf-8').write(page('Blog | Günhan Marine', blog_body, ''))
+open(OUT + '/blog.html', 'w', encoding='utf-8').write(page('Blog: motor, elektrik ve bakım rehberleri | Günhan Marine', blog_body, ''))
 
 # Blog yazıları
 for p in POSTS:

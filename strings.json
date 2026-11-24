@@ -1934,5 +1934,188 @@
 },
 {
 "k": "Radar görünümünde tekne taraması: seyir, elektrik, akü, motor ve pervane noktaları"
+},
+{
+"k": "Sintine pompası ve seacock bakımı: batmayı önleyen küçük kontroller"
+},
+{
+"k": "Sintine pompası ve deniz suyu vanaları sessiz çalışır, ama biri arızalandığında tekne için en kritik parçalar olur. Hangi kontrollerin ne sıklıkla yapılacağını ve nelere dikkat edileceğini özetliyoruz."
+},
+{
+"k": "Bakım"
+},
+{
+"k": "Teknede kışa hazırlık: motor, elektrik ve su sistemi kontrol listesi"
+},
+{
+"k": "Kışlama, sezonun son işi değil gelecek sezonun ilk işidir. Motor, yakıt, soğutma, akü ve sintine için sırayla yapılacak kontroller ve atlanan küçük detaylar."
+},
+{
+"k": "Hortum kelepçeli bir tekne bağlantı elemanında tuz ve korozyon izi"
+},
+{
+"k": "Karada kışlamaya alınmış dıştan takma motorun alt ünitesi"
+},
+{
+"k": "Sintine pompası ve şamandırası düzenli olarak elle ve otomatik modda denenmeli, filtresi temizlenmeli, bağlantıları ve sigortası kontrol edilmelidir. Seacock’lar her sezon açılıp kapatılmalı; gövde altındaki hortumlarda çift kelepçe kullanılmalı ve sararmış, pembeleşmiş pirinç parçalar değiştirilmelidir."
+},
+{
+"k": "Sintine pompası ve deniz suyu vanaları, teknede çoğu zaman unutulan iki sistemdir. Çalıştıkları sürece fark edilmezler; biri arızalandığında ise küçük bir su girişi ciddi bir sorun haline gelebilir. İkisinin de bakımı kısa ve ucuzdur."
+},
+{
+"k": "Şamandırayı elle kaldırın ve pompanın otomatik çalıştığını doğrulayın. Pano üzerindeki manuel anahtarla da deneyin."
+},
+{
+"k": "Emiş filtresini temizleyin. Kağıt, saç ve yağlı çamur filtreyi tıkar."
+},
+{
+"k": "Boşaltma hortumunun yüksek bir kıvrım (loop) yaptığını ve çıkışın su hattının üstünde olduğunu kontrol edin."
+},
+{
+"k": "Kablo bağlantılarını, sigortayı ve pano anahtarını gözden geçirin; yeşillenmiş uç sinyal verir."
+},
+{
+"k": "Tek pompa yerine, ayrı sigortalı ikinci bir pompa veya yüksek su alarmı düşünün."
+},
+{
+"k": "Pompanın çalıştığını duymak yeterli değildir. Su basıp basmadığı, yani boşaltma ucundan su çıkıp çıkmadığı da kontrol edilmelidir. Kuru çalışan bir pompa sesli görünür ama su taşımaz."
+},
+{
+"k": "Seacock (deniz suyu vanası)"
+},
+{
+"k": "Her sezon başında ve sonunda vanayı tam açıp kapatın. Uzun süre hareket etmeyen vana tuzla sıkışır ve gerektiğinde kapanmaz."
+},
+{
+"k": "Gövde altındaki vanalar için kuyruklu bilyalı vana, kapama amacıyla genellikle tercih edilir; sızdırmazlık yüzeyi daha güvenilirdir."
+},
+{
+"k": "Pirinç vanalar zamanla çinkosunu kaybedip pembeleşebilir ve kırılganlaşabilir. Bu durumda vana değiştirilmelidir."
+},
+{
+"k": "Vananın yanında, uygun boyda yumuşak ahşap tıpa bulundurun. Acil durumda hortum koptuğunda yuvaya bastırılır."
+},
+{
+"k": "Hortum ve kelepçeler"
+},
+{
+"k": "Su hattının altındaki her hortum bağlantısında iki ayrı paslanmaz çelik kelepçe kullanılmalıdır. Hortum sertleşmiş, çatlamış veya şişmişse değiştirilir. Kelepçelerin vidası ve bandı pas aldıysa yenilenir."
+},
+{
+"k": "Teknede su girişi başladığında önce pompanın çalıştığından emin olun, ardından kaynağı bulmaya çalışın. Pompa yetişmiyorsa su alan hattı kapatın ve yardım çağırın."
+},
+{
+"k": "Sintine pompası ne sıklıkla denenmeli?"
+},
+{
+"k": "Her kullanımdan önce ya da en azından ayda bir elle ve otomatik modda denenmelidir. Uzun süre bırakılan teknede ise her ziyarette kontrol edilmelidir."
+},
+{
+"k": "Seacock’lar ne zaman değiştirilir?"
+},
+{
+"k": "Sıkışıyor, sızdırıyor, çatlak veya pembeleşmiş pirinç görünümündeyse değiştirilir. Düzenli kullanılan ve bakımı yapılan vana uzun yıllar çalışır."
+},
+{
+"k": "Mersin, Hatay veya Bodrum’da sintine ve seacock kontrolü yaptırabilir miyim?"
+},
+{
+"k": "Evet. Pompa, vana ve hortum kontrolü teknenin bulunduğu yerde yapılır. Adana, Mersin ve Hatay’ın yanı sıra Bodrum, Alanya, Antalya ve İstanbul için de randevuya göre planlama yapılır."
+},
+{
+"k": "Kışlamada sırayla şunlar yapılır: motor tatlı suyla yıkanır, yağ ve filtresi değiştirilir, yakıt sistemi korunur, soğutma devresi boşaltılır veya uygun antifrizle doldurulur, akü şarjlı tutulur, sintine temizlenip kurutulur. Ayrıntılar için üreticinin kılavuzu esas alınır."
+},
+{
+"k": "Tekneyi sezon sonunda olduğu gibi bırakmak, ilkbaharda büyük bir fatura çıkarabilir. Kullanılmayan motorda nem, eski yağ ve bayat yakıt sessizce zarar verir. Aşağıdaki liste, bir tekneyi kışa hazırlarken sırayla bakılacak başlıca noktaları özetler."
+},
+{
+"k": "Motor ve yakıt"
+},
+{
+"k": "Motoru çalıştırıp ısıtın, ardından yağı ve yağ filtresini değiştirin. Kullanılmış yağ asit ve nem içerir; bununla beklemek iç yüzeylere zarar verir."
+},
+{
+"k": "Deniz suyu soğutma devresini tatlı suyla yıkayın. Tuz kalıntısı beklerken kristalleşir ve kanalları daraltır."
+},
+{
+"k": "Yakıt sistemini koruyun: depoyu mümkünse doldurun ve uygun bir yakıt stabilizatörü kullanın. Dolu depo, yoğuşan nemi azaltır."
+},
+{
+"k": "Yakıt filtresini ve su ayırıcıyı kontrol edin, suyu boşaltın."
+},
+{
+"k": "Dıştan takma motorlarda alt ünite yağını kontrol edin, süt rengi su girişine işaret eder."
+},
+{
+"k": "Soğutma devresi ve donma riski"
+},
+{
+"k": "Donma riski olan bölgelerde soğutma devresindeki su boşaltılmalı ya da uygun bir antifriz karışımıyla doldurulmalıdır. Akdeniz kıyısında donma nadirdir; yine de uzun süre kullanılmayan motorda su tutan kanallar korozyona açıktır. Karar vermeden önce motor üreticisinin kışlama talimatına bakılmalıdır."
+},
+{
+"k": "Akü ve elektrik"
+},
+{
+"k": "Aküleri tam şarj edin. Boşalmış kurşun-asit akü hem sülfatlaşır hem de daha düşük sıcaklıkta donabilir."
+},
+{
+"k": "Aküleri teknede bırakacaksanız ana şalteri kapatın ve akü ayırıcısını açın; bekleme akımı çeken cihazlar aküyü ay içinde bitirebilir."
+},
+{
+"k": "Uzun süre kıyı gücüne bağlı kalacaksanız akıllı bir bakım şarj cihazı kullanın."
+},
+{
+"k": "Terminallerde korozyon varsa temizleyin ve korozyon koruyucu uygulayın."
+},
+{
+"k": "Kıyı gücü kablosunu ve prizleri gözden geçirin; yanık veya renk değişimi olan uçları yenileyin."
+},
+{
+"k": "Sintine, vana ve gövde altı"
+},
+{
+"k": "Sintineyi temizleyip kurutun. Nemli ve kapalı bir sintine koku ve korozyon üretir."
+},
+{
+"k": "Sintine pompasını ve şamandırasını elle çalıştırarak deneyin."
+},
+{
+"k": "Deniz suyu vanalarını (seacock) açıp kapatarak sıkışma olup olmadığına bakın."
+},
+{
+"k": "Tutyaların durumunu kontrol edin; yarısından fazlası erimişse değiştirin."
+},
+{
+"k": "Yağmur ve yoğuşma suyu da tekneye girer. Kapak ve lombalar kapalıyken içeride havalandırma yoksa nem küf ve koku üretir; küçük bir havalandırma payı bırakmak çoğu zaman yeterlidir."
+},
+{
+"k": "Bu liste genel bir çerçevedir. Motor markasına ve modeline göre kışlama adımları değişir. Emin olmadığınız adımı kendi başınıza yapmak yerine teknik servise danışmak, ilkbaharda sürpriz faturayı önler."
+},
+{
+"k": "Kışlamada motor yağı sezon sonunda mı sezon başında mı değiştirilmeli?"
+},
+{
+"k": "Genellikle sezon sonunda değiştirilir. Kullanılmış yağdaki asit ve nem, motor uzun süre durduğunda iç yüzeylere zarar verebilir."
+},
+{
+"k": "Akü kışın tekneden sökülmeli mi?"
+},
+{
+"k": "Zorunlu değildir. Tam şarjlı bırakılmalı, ana şalter kapatılmalı ve mümkünse akıllı bir bakım şarj cihazı kullanılmalıdır. Boşalmış akü sülfatlaşır ve donabilir."
+},
+{
+"k": "Adana, Mersin veya Hatay’da kışlama bakımı için gelir misiniz?"
+},
+{
+"k": "Evet. Kışlama kontrolü teknenin bulunduğu marina veya çekek yerinde yapılır. Adana, Mersin ve Hatay’ın yanı sıra Bodrum, Alanya, Antalya ve İstanbul için de randevuya göre planlama yapılır."
+},
+{
+"k": "İçeriğe geç"
+},
+{
+"k": "Blog: motor, elektrik ve bakım rehberleri"
+},
+{
+"k": "Mobil servis sahasından: motor, elektrik, seyir elektroniği ve karina bakımı üzerine kısa, uygulanabilir yazılar. Arıza belirtileri, bakım aralıkları ve ilk kontroller."
 }
 ]

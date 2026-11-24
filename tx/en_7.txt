@@ -1,0 +1,58 @@
+644|||Bilge pump and seacock maintenance: small checks that prevent sinking
+645|||Bilge pumps and seawater valves work quietly, but when one fails it becomes the most critical part of the boat. Here is which checks to do, how often, and what to watch for.
+646|||Maintenance
+647|||Winterizing your boat: engine, electrical and water system checklist
+648|||Winterizing is not the last job of the season but the first job of the next one. The checks to do in order for the engine, fuel, cooling, battery and bilge, plus the small details people skip.
+649|||Salt and corrosion deposits on a hose-clamped boat fitting
+650|||Lower unit of an outboard motor stored ashore for the winter
+651|||The bilge pump and its float switch should be tested regularly by hand and in automatic mode, its strainer cleaned, and its connections and fuse checked. Seacocks should be opened and closed every season; use double clamps on hoses below the waterline and replace brass parts that have turned yellow or pink.
+652|||The bilge pump and the seawater valves are two systems that are often forgotten on a boat. As long as they work you never notice them; when one fails, a small leak can become a serious problem. Maintaining both is quick and cheap.
+653|||Lift the float switch by hand and confirm the pump starts automatically. Also try it with the manual switch on the panel.
+654|||Clean the suction strainer. Paper, hair and oily sludge clog it.
+655|||Check that the discharge hose makes a high loop and that the outlet is above the waterline.
+656|||Inspect the wiring connections, the fuse and the panel switch; a green-tinged terminal is a warning sign.
+657|||Instead of a single pump, consider a second pump on its own fuse, or a high-water alarm.
+658|||Hearing the pump run is not enough. You also need to check that it actually moves water, that is, that water comes out of the discharge outlet. A pump running dry sounds fine but moves nothing.
+659|||Seacock (seawater valve)
+660|||Open and close the valve fully at the start and end of every season. A valve that has not moved for a long time seizes with salt and will not close when you need it.
+661|||For valves below the waterline, a tailpiece ball valve is generally preferred for shut-off; its sealing surface is more dependable.
+662|||Brass valves can lose their zinc over time, turn pink and become brittle. If so, the valve must be replaced.
+663|||Keep soft wooden bungs of the right size next to the valve. In an emergency, if a hose comes off, the bung is pushed into the opening.
+664|||Hoses and clamps
+665|||Every hose connection below the waterline should have two separate stainless steel clamps. Replace a hose that has hardened, cracked or swollen. Replace clamps whose screw or band has rusted.
+666|||When water starts coming in, first make sure the pump is running, then look for the source. If the pump cannot keep up, close the leaking line and call for help.
+667|||How often should the bilge pump be tested?
+668|||Test it by hand and in automatic mode before every outing, or at least once a month. On a boat left unattended for long periods, check it on every visit.
+669|||When should seacocks be replaced?
+670|||Replace them if they seize, leak, are cracked, or the brass looks pink. A valve that is used regularly and maintained will last many years.
+671|||Can you check the bilge and seacocks in Mersin, Hatay or Bodrum?
+672|||Yes. Pump, valve and hose checks are done where the boat is. Besides Adana, Mersin and Hatay, we also plan visits by appointment for Bodrum, Alanya, Antalya and Istanbul.
+673|||Winterizing is done in this order: flush the engine with fresh water, change the oil and filter, protect the fuel system, drain the cooling circuit or fill it with a suitable antifreeze, keep the battery charged, and clean and dry the bilge. The manufacturer’s manual takes precedence for details.
+674|||Leaving the boat as it is at the end of the season can lead to a big bill in spring. In an unused engine, moisture, old oil and stale fuel do quiet damage. The list below summarizes the main points to check, in order, when preparing a boat for winter.
+675|||Engine and fuel
+676|||Run the engine to warm it up, then change the oil and oil filter. Used oil contains acid and moisture; leaving it in damages internal surfaces.
+677|||Flush the seawater cooling circuit with fresh water. Salt residue crystallizes while the engine sits and narrows the passages.
+678|||Protect the fuel system: fill the tank if possible and use a suitable fuel stabilizer. A full tank reduces condensation.
+679|||Check the fuel filter and water separator, and drain any water.
+680|||On outboards, check the lower unit oil; a milky color points to water ingress.
+681|||Cooling circuit and freezing risk
+682|||In regions where freezing is a risk, the water in the cooling circuit must be drained or replaced with a suitable antifreeze mix. Freezing is rare on the Mediterranean coast; even so, passages that hold water in a long-idle engine are prone to corrosion. Check the engine manufacturer’s winterizing instructions before deciding.
+683|||Battery and electrical
+684|||Fully charge the batteries. A discharged lead-acid battery both sulfates and can freeze at a lower temperature.
+685|||If you leave the batteries aboard, switch off the main switch and open the battery isolator; devices that draw standby current can drain a battery within a month.
+686|||If the boat will stay connected to shore power for a long time, use a smart maintenance charger.
+687|||Clean any corrosion on the terminals and apply a corrosion protectant.
+688|||Inspect the shore power cable and sockets; replace any ends that are burnt or discolored.
+689|||Bilge, valves and underwater hull
+690|||Clean and dry the bilge. A damp, closed bilge produces odor and corrosion.
+691|||Test the bilge pump and its float switch by operating them by hand.
+692|||Open and close the seawater valves (seacocks) to check for seizing.
+693|||Check the condition of the anodes; replace them if more than half has dissolved.
+694|||Rain and condensation also get into the boat. If hatches and ports are closed with no ventilation inside, moisture produces mold and odor; leaving a small gap for ventilation is usually enough.
+695|||This list is a general framework. Winterizing steps vary with the engine make and model. Consulting a technical service instead of doing a step you are unsure about yourself avoids a surprise bill in spring.
+696|||Should engine oil be changed at the end or at the start of the season when winterizing?
+697|||It is usually changed at the end of the season. The acid and moisture in used oil can damage internal surfaces when the engine sits for a long time.
+698|||Should the battery be removed from the boat in winter?
+699|||It is not mandatory. Leave it fully charged, switch off the main switch and, if possible, use a smart maintenance charger. A discharged battery sulfates and can freeze.
+700|||Do you come to Adana, Mersin or Hatay for winterizing service?
+701|||Yes. The winterizing check is done at the marina or boatyard where the boat is. Besides Adana, Mersin and Hatay, we also plan visits by appointment for Bodrum, Alanya, Antalya and Istanbul.

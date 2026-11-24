@@ -58,81 +58,190 @@ FOUNDER_LD = {"@type": "Person", "@id": FOUNDER, "name": "Alptekin Günhan", "jo
   "knowsAbout": ["deniz motorları", "marine elektrik", "seyir elektroniği", "ABYC"]}
 SITE_LD = {"@type": "WebSite", "@id": SITE, "url": DOMAIN + "/", "name": "Günhan Marine", "inLanguage": "tr", "publisher": {"@id": BIZ}}
 
-def crumbs(items):
-    return {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": DOMAIN + '/' + u} for i, (n, u) in enumerate(items)]}
+# ---------- diller: /en/ /ru/ /ar/ statik kopyalar ----------
+from bs4 import BeautifulSoup, NavigableString
+from urllib.parse import urljoin, urlsplit
+import copy
+LANGS = ('tr', 'en', 'ru', 'ar'); DIRS = {'tr': 'ltr', 'en': 'ltr', 'ru': 'ltr', 'ar': 'rtl'}; LOCALE = {'tr': 'tr_TR', 'en': 'en_US', 'ru': 'ru_RU', 'ar': 'ar_AR'}
+FONTS = {'ru': 'https://fonts.googleapis.com/css2?family=Onest:wght@300..800&display=swap', 'ar': 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap'}
+DICT = {l: json.load(open(f'{SRC}/i18n/{l}.json', encoding='utf-8')) for l in ('en', 'ru', 'ar')}
+PAGES_LASTMOD = '2026-11-24'  # tasarım/içerik değişince elle güncelle; yazılar kendi tarihini kullanır
+SPECIAL = {
+  'en': {INDEX_DESC: 'On-site mobile marine technical service across Türkiye: marine engines, marine electrical, navigation electronics, hull care and pre-purchase survey.',
+         'Sorunun köküne ineriz.': 'We get to the root of the problem.', 'Kurucu & Marine Sistemler Mühendisi': 'Founder & Marine Systems Engineer',
+         'Ana sayfa': 'Home', 'Hizmetler': 'Services', 'Blog': 'Blog', 'Hakkımızda': 'About us',
+         'TITLE': 'Mobile marine technical service across Türkiye | Günhan Marine', 'SUFFIX': ' On-site service across Türkiye.'},
+  'ru': {INDEX_DESC: 'Выездной мобильный морской технический сервис по всей Турции: судовые двигатели, морская электрика, навигационная электроника, уход за корпусом и экспертиза перед покупкой.',
+         'Sorunun köküne ineriz.': 'Мы докапываемся до первопричины.', 'Kurucu & Marine Sistemler Mühendisi': 'Основатель и инженер морских систем',
+         'Ana sayfa': 'Главная', 'Hizmetler': 'Услуги', 'Blog': 'Блог', 'Hakkımızda': 'О нас',
+         'TITLE': 'Мобильный морской технический сервис по всей Турции | Günhan Marine', 'SUFFIX': ' Выездной сервис по всей Турции.'},
+  'ar': {INDEX_DESC: 'خدمة بحرية فنية متنقلة في موقع القارب في جميع أنحاء تركيا: محركات بحرية وكهرباء بحرية وإلكترونيات الملاحة والعناية بالبدن وفحص ما قبل الشراء.',
+         'Sorunun köküne ineriz.': 'نصل إلى جذر المشكلة.', 'Kurucu & Marine Sistemler Mühendisi': 'المؤسس ومهندس الأنظمة البحرية',
+         'Ana sayfa': 'الرئيسية', 'Hizmetler': 'الخدمات', 'Blog': 'المدونة', 'Hakkımızda': 'من نحن',
+         'TITLE': 'خدمة بحرية فنية متنقلة في جميع أنحاء تركيا | Günhan Marine', 'SUFFIX': ' خدمة في موقع القارب في جميع أنحاء تركيا.'},
+}
+norm = lambda s: re.sub(r'\s+', ' ', s).strip()
+def U(lang, rel):
+    return DOMAIN + '/' + ('' if lang == 'tr' else lang + '/') + ('' if rel == 'index.html' else rel)
+def tr(lang, s):
+    if lang == 'tr' or not isinstance(s, str): return s
+    k = norm(s)
+    return SPECIAL[lang].get(k) or DICT[lang].get(k) or s
+def tr_ld(lang, o):
+    if lang == 'tr': return o
+    if isinstance(o, str): return o if o.startswith('http') else tr(lang, o)
+    if isinstance(o, list): return [tr_ld(lang, x) for x in o]
+    if isinstance(o, dict): return {k: (v if k in ('@id', '@type', 'url', 'item', 'image', 'logo', 'telephone', 'email', 'inLanguage', 'datePublished', 'dateModified', 'position', 'addressCountry', 'knowsLanguage') else tr_ld(lang, v)) for k, v in o.items()}
+    return o
+
+EXT_ASSET = re.compile(r'\.(?:jpe?g|png|webp|svg|gif|ico|css|js|json|xml|txt|woff2?|pdf|mp4)$', re.I)
+def fix_url(u, rel, lang, page_link):
+    if not u or re.match(r'^(?:[a-z][a-z0-9+.-]*:|//|#)', u, re.I): return u
+    sp = urlsplit(urljoin('/' + rel, u)); path = sp.path
+    tail = ('?' + sp.query if sp.query else '') + ('#' + sp.fragment if sp.fragment else '')
+    if page_link and not EXT_ASSET.search(path):
+        if path in ('/', '/index.html'): path = '/'
+        return '/' + lang + path + tail
+    return path + tail
+
+SKIPT = {'script', 'style', 'noscript', 'textarea'}
+def blocked(el):
+    p = el
+    while p is not None and getattr(p, 'name', None):
+        if p.name in SKIPT or p.name in ('head', 'title') or p.has_attr('data-nt') or p.has_attr('data-i18n'): return True
+        p = p.parent
+    return False
+
+def localize(s, rel, lang):
+    d = DICT[lang]
+    soup = BeautifulSoup(s, 'html.parser')
+    for n in list(soup.find_all(string=True)):
+        if type(n) is not NavigableString or blocked(n.parent): continue
+        k = norm(str(n))
+        if k and k in d:
+            v = str(n); n.replace_with(NavigableString(re.match(r'^\s*', v).group(0) + d[k] + re.search(r'\s*$', v).group(0)))
+    for el in soup.find_all(attrs={'alt': True}) + soup.find_all(attrs={'placeholder': True}) + soup.find_all(attrs={'aria-label': True}) + soup.find_all(attrs={'title': True}):
+        if el.name == 'title' or el.find_parent(attrs={'data-nt': True}) is not None or el.has_attr('data-nt'): continue
+        for a in ('alt', 'placeholder', 'aria-label', 'title'):
+            if el.has_attr(a):
+                k = norm(el[a])
+                if k in d: el[a] = d[k]
+    for el in soup.find_all(attrs={'data-i18n': True}):
+        v = d.get(el['data-i18n'])
+        if v is not None:
+            el.clear(); el.append(BeautifulSoup(v, 'html.parser'))
+    t = soup.find('title')
+    if t is not None:
+        parts = (t.string or '').split(' | '); parts[0] = d.get(norm(parts[0]), parts[0]); t.string = ' | '.join(parts)
+    for a in soup.find_all('a', href=True): a['href'] = fix_url(a['href'], rel, lang, True)
+    for el in soup.find_all(['img', 'source', 'script', 'link']):
+        for at in ('src', 'href'):
+            if el.has_attr(at): el[at] = fix_url(el[at], rel, lang, False)
+        if el.has_attr('srcset'): el['srcset'] = ', '.join(fix_url(x.split()[0], rel, lang, False) + ' ' + ' '.join(x.split()[1:]) for x in el['srcset'].split(','))
+    body = soup.find('body')
+    if body is not None and body.has_attr('data-root'): body['data-root'] = '/'
+    g = soup.find(id='gm-root')
+    if g is not None: g['data-root'] = '/'
+    if soup.html is not None:
+        soup.html['lang'] = lang; soup.html['dir'] = DIRS[lang]; soup.html['data-static'] = lang
+    return soup.decode()
+
+def crumbs(lang, items):
+    return {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": U(lang, u) if u and not u.startswith('#') else (U(lang, 'index.html') + u)} for i, (n, u) in enumerate(items)]}
 def faq_ld(fq): return {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in fq]}
 
-def head_block(rel, title, desc, img, kind, graph):
-    url = DOMAIN + '/' + ('' if rel == 'index.html' else rel)
-    root = '../' * rel.count('/')
+def head_block(rel, lang, title, desc, img, kind, graph):
+    url = U(lang, rel)
+    root = '/' if lang != 'tr' else '../' * rel.count('/')
     ogimg = DOMAIN + '/images/' + img
+    alts = ''.join('<link rel="alternate" hreflang="%s" href="%s">' % (l, U(l, rel)) for l in LANGS) + '<link rel="alternate" hreflang="x-default" href="%s">' % U('tr', rel)
     h = ('<meta name="description" content="%s"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">'
-         '<link rel="canonical" href="%s">'
-         '<meta property="og:type" content="%s"><meta property="og:site_name" content="Günhan Marine"><meta property="og:locale" content="tr_TR">'
+         '<link rel="canonical" href="%s">%s'
+         '<meta property="og:type" content="%s"><meta property="og:site_name" content="Günhan Marine"><meta property="og:locale" content="%s">'
          '<meta property="og:title" content="%s"><meta property="og:description" content="%s"><meta property="og:url" content="%s"><meta property="og:image" content="%s">'
          '<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="%s"><meta name="twitter:description" content="%s"><meta name="twitter:image" content="%s">'
          '<meta name="theme-color" content="#07131f">'
          '<link rel="icon" href="%sfavicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="%sfavicon-32.png"><link rel="apple-touch-icon" href="%sapple-touch-icon.png">'
          '<link rel="alternate" type="application/rss+xml" title="Günhan Marine Blog" href="%sfeed.xml">') % (
-         E(desc), url, kind, E(title), E(desc), url, ogimg, E(title), E(desc), ogimg, root, root, root, root)
+         E(desc), url, alts, kind, LOCALE[lang], E(title), E(desc), url, ogimg, E(title), E(desc), ogimg, root, root, root, root)
+    if lang in FONTS: h += '<link rel="stylesheet" href="%s">' % FONTS[lang]
     h += '<script type="application/ld+json">%s</script>' % json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
     return h
 
-pages = sorted(os.path.relpath(os.path.join(d, f), OUT).replace(os.sep, '/') for d, _, fs in os.walk(OUT) for f in fs if f.endswith('.html'))
+base_pages = sorted(os.path.relpath(os.path.join(d, f), SRC).replace(os.sep, '/') for d, _, fs in os.walk(SRC) for f in fs if f.endswith('.html'))
+ORIG = {rel: open(f'{SRC}/{rel}', encoding='utf-8').read() for rel in base_pages}
 MARK = '<meta name="claude:viewport-fit-sides" content="cover">'
+MARK_RE = re.compile(r'<meta[^>]*claude:viewport-fit-sides[^>]*>')
 sitemap_items = []
-for rel in pages:
-    p = f'{OUT}/{rel}'; s = open(p, encoding='utf-8').read(); assert MARK in s, rel
+for lang in LANGS:
+  for rel in base_pages:
+    s = ORIG[rel] if lang == 'tr' else localize(ORIG[rel], rel, lang)
+    assert MARK_RE.search(s), (lang, rel)
     fq = faqs(s); lead = lead_of(s); img = first_img(s, '') or 'og-gunhan-marine.jpg'
+    L = lambda x: tr(lang, x)
+    biz = copy.deepcopy(BIZ_LD); biz['description'] = L(INDEX_DESC); biz['slogan'] = L(biz['slogan'])
+    founder = copy.deepcopy(FOUNDER_LD); founder['jobTitle'] = L(founder['jobTitle']); founder['url'] = U(lang, 'hakkimizda.html')
+    site = dict(SITE_LD, inLanguage=lang, url=U(lang, 'index.html'))
+    CR = lambda items: crumbs(lang, [(L(n), u) for n, u in items])
     graph = []; kind = 'website'; prio = '0.7'
     if rel == 'index.html':
-        title = 'Türkiye geneli mobil marine teknik servis | Günhan Marine'; desc = INDEX_DESC; img = 'og-gunhan-marine.jpg'; prio = '1.0'
-        graph = [BIZ_LD, FOUNDER_LD, SITE_LD, {"@type": "WebPage", "@id": DOMAIN + "/#webpage", "url": DOMAIN + "/", "name": title, "isPartOf": {"@id": SITE}, "about": {"@id": BIZ}, "inLanguage": "tr"}]
+        title = SPECIAL[lang]['TITLE'] if lang != 'tr' else 'Türkiye geneli mobil marine teknik servis | Günhan Marine'; desc = L(INDEX_DESC); img = 'og-gunhan-marine.jpg'; prio = '1.0'
+        graph = [biz, founder, site, {"@type": "WebPage", "@id": U(lang, 'index.html') + "#webpage", "url": U(lang, 'index.html'), "name": title, "isPartOf": {"@id": SITE}, "about": {"@id": BIZ}, "inLanguage": lang}]
         if fq: graph.append(faq_ld(fq))
     else:
         title = html.unescape(re.search(r'<title>(.*?)</title>', s).group(1)); name = title.split(' | ')[0]
         if rel.startswith('hizmetler/'):
-            desc = trim(lead, 118) + ' Türkiye genelinde yerinde servis.'
-            desc = trim(desc, 158); prio = '0.9'
-            graph = [{"@type": "Service", "@id": url if (url := DOMAIN + '/' + rel) else '', "name": name, "serviceType": name, "description": lead, "url": DOMAIN + '/' + rel,
+            desc = trim(trim(lead, 118) + L(' Türkiye genelinde yerinde servis.') if lang == 'tr' else trim(lead, 118) + SPECIAL[lang]['SUFFIX'], 158); prio = '0.9'
+            graph = [{"@type": "Service", "@id": U(lang, rel), "name": name, "serviceType": name, "description": lead, "url": U(lang, rel),
                       "provider": {"@id": BIZ}, "areaServed": BIZ_LD["areaServed"], "image": DOMAIN + '/images/' + img},
-                     crumbs([("Ana sayfa", ""), ("Hizmetler", "#hizmetler"), (name, rel)])]
+                     CR([("Ana sayfa", "index.html"), ("Hizmetler", "#hizmetler"), (name, rel)])]
+            graph[1]['itemListElement'][2]['name'] = name
             if fq: graph.append(faq_ld(fq))
         elif rel.startswith('blog/'):
-            slug = os.path.basename(rel)[:-5]; post = POST[slug]; kind = 'article'; img = post['img']; desc = trim(post['excerpt'], 158); prio = '0.6'
-            graph = [{"@type": "BlogPosting", "headline": name, "description": post['excerpt'], "image": DOMAIN + '/images/' + img, "inLanguage": "tr",
-                      "mainEntityOfPage": DOMAIN + '/' + rel, "datePublished": post['date'], "dateModified": post['date'],
-                      "author": {"@id": FOUNDER}, "publisher": {"@id": BIZ}, "about": post['cat'],
-                      "isPartOf": {"@id": DOMAIN + "/blog.html"}},
-                     FOUNDER_LD, BIZ_LD, crumbs([("Ana sayfa", ""), ("Blog", "blog.html"), (name, rel)])]
+            slug = os.path.basename(rel)[:-5]; post = POST[slug]; kind = 'article'; img = post['img']; ex = L(post['excerpt']); desc = trim(ex, 158); prio = '0.6'
+            graph = [{"@type": "BlogPosting", "headline": name, "description": ex, "image": DOMAIN + '/images/' + img, "inLanguage": lang,
+                      "mainEntityOfPage": U(lang, rel), "datePublished": post['date'], "dateModified": post['date'],
+                      "author": {"@id": FOUNDER}, "publisher": {"@id": BIZ}, "about": L(post['cat']),
+                      "isPartOf": {"@id": U(lang, 'blog.html')}},
+                     founder, biz, CR([("Ana sayfa", "index.html"), ("Blog", "blog.html"), (name, rel)])]
+            graph[3]['itemListElement'][2]['name'] = name
             if fq: graph.append(faq_ld(fq))
         elif rel == 'blog.html':
             desc = trim(lead, 158); prio = '0.7'
-            graph = [{"@type": "Blog", "name": "Günhan Marine Blog", "url": DOMAIN + '/blog.html', "inLanguage": "tr", "publisher": {"@id": BIZ},
-                      "blogPost": [{"@type": "BlogPosting", "headline": pp['title'], "url": DOMAIN + '/blog/' + pp['slug'] + '.html'} for pp in POSTS]},
-                     crumbs([("Ana sayfa", ""), ("Blog", "blog.html")])]
+            graph = [{"@type": "Blog", "name": "Günhan Marine Blog", "url": U(lang, 'blog.html'), "inLanguage": lang, "publisher": {"@id": BIZ},
+                      "blogPost": [{"@type": "BlogPosting", "headline": L(pp['title']), "url": U(lang, 'blog/' + pp['slug'] + '.html')} for pp in POSTS]},
+                     CR([("Ana sayfa", "index.html"), ("Blog", "blog.html")])]
         elif rel == 'hakkimizda.html':
             desc = trim(lead, 158); img = 'og-gunhan-marine.jpg'
-            graph = [{"@type": "AboutPage", "url": DOMAIN + '/hakkimizda.html', "name": name, "about": {"@id": BIZ}, "inLanguage": "tr"}, FOUNDER_LD,
-                     crumbs([("Ana sayfa", ""), ("Hakkımızda", rel)])]
+            graph = [{"@type": "AboutPage", "url": U(lang, rel), "name": name, "about": {"@id": BIZ}, "inLanguage": lang}, founder,
+                     CR([("Ana sayfa", "index.html"), ("Hakkımızda", rel)])]
+            graph[2]['itemListElement'][1]['name'] = name
             if fq: graph.append(faq_ld(fq))
         else:
-            desc = trim(lead or INDEX_DESC, 158)
-    hb = head_block(rel, title, desc, img, kind, graph)
+            desc = trim(lead or L(INDEX_DESC), 158)
+    hb = head_block(rel, lang, title, desc, img, kind, graph)
     if rel == 'index.html':
-        s = s.replace('<title>Günhan Marine</title>', '', 1).replace(MARK, '', 1)
-        s = ('<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
+        s = s.replace('<title>Günhan Marine</title>', '', 1); s = re.sub(r'<title>[^<]*</title>', '', s, count=1); s = MARK_RE.sub('', s, count=1)
+        s = ('<!doctype html><html lang="%s" dir="%s"%s><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">' % (lang, DIRS[lang], '' if lang == 'tr' else ' data-static="%s"' % lang) +
              '<title>%s</title>' % html.escape(title) + hb +
-             '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>' + s.lstrip() + '</body></html>')
+             '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>' + re.sub(r'^\s*<!doctype[^>]*>\s*', '', s).lstrip() + '</body></html>')
     else:
-        s = s.replace(MARK, hb, 1)
-    open(p, 'w', encoding='utf-8').write(s)
-    sitemap_items.append((rel, prio))
+        s = MARK_RE.sub(lambda m: hb, s, count=1)
+    outp = f'{OUT}/{rel}' if lang == 'tr' else f'{OUT}/{lang}/{rel}'
+    os.makedirs(os.path.dirname(outp), exist_ok=True)
+    open(outp, 'w', encoding='utf-8').write(s)
+    if lang == 'tr': sitemap_items.append((rel, prio))
+pages = [r for r, _ in sitemap_items]
 
 # ---------- sitemap, robots, llms.txt, feed, indexnow, netlify ----------
 def loc(r): return DOMAIN + '/' + ('' if r == 'index.html' else r)
-open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  ''.join('  <url><loc>%s</loc><lastmod>%s</lastmod><changefreq>monthly</changefreq><priority>%s</priority></url>\n' % (loc(r), (POST[r[5:-5]]['date'] if r.startswith('blog/') else TODAY), pr) for r, pr in sitemap_items) + '</urlset>\n')
+def lm(r): return POST[r[5:-5]]['date'] if r.startswith('blog/') else PAGES_LASTMOD
+def sm_url(l, r, pr):
+    return ('  <url><loc>%s</loc><lastmod>%s</lastmod><changefreq>monthly</changefreq><priority>%s</priority>' % (U(l, r), lm(r), pr) +
+            ''.join('<xhtml:link rel="alternate" hreflang="%s" href="%s"/>' % (x, U(x, r)) for x in LANGS) +
+            '<xhtml:link rel="alternate" hreflang="x-default" href="%s"/></url>\n' % U('tr', r))
+open(f'{OUT}/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
+  ''.join(sm_url(l, r, pr if l == 'tr' else str(round(float(pr) - 0.1, 1))) for r, pr in sitemap_items for l in LANGS) + '</urlset>\n')
 BOTS = ['Googlebot', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'CCBot']
 open(f'{OUT}/robots.txt', 'w').write('# Günhan Marine: tüm arama ve yapay zekâ tarayıcılarına açık\n' + ''.join('User-agent: %s\nAllow: /\n\n' % b for b in BOTS) +
   'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % DOMAIN)
@@ -189,5 +298,5 @@ open(f'{OUT}/_headers', 'w').write('''/*
 ''')
 open(f'{OUT}/_redirects', 'w').write('# eski adres -> yeni adres\n/blog/kurban-anot-cinko-nedir-ne-zaman-degistirilir.html  /blog/tutya-cinko-nedir-ne-zaman-degistirilir.html  301\n/hizmetler/travel-lift-tersane-ekipmanlari.html  /  301\n')
 if os.path.exists(f'{OUT}/files.json'): os.remove(f'{OUT}/files.json')
-open('indexnow_urls.json', 'w').write(json.dumps({"host": DOMAIN.split('//')[1], "key": KEY, "keyLocation": f"{DOMAIN}/{KEY}.txt", "urlList": [loc(r) for r, _ in sitemap_items]}, indent=1))
+open('indexnow_urls.json', 'w').write(json.dumps({"host": DOMAIN.split('//')[1], "key": KEY, "keyLocation": f"{DOMAIN}/{KEY}.txt", "urlList": [U(l, r) for r, _ in sitemap_items for l in LANGS]}, indent=1))
 print(len(pages), 'sayfa;', DOMAIN, '; anahtar', KEY)
