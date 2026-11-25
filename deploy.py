@@ -65,7 +65,7 @@ import copy
 LANGS = ('tr', 'en', 'ru', 'ar'); DIRS = {'tr': 'ltr', 'en': 'ltr', 'ru': 'ltr', 'ar': 'rtl'}; LOCALE = {'tr': 'tr_TR', 'en': 'en_US', 'ru': 'ru_RU', 'ar': 'ar_AR'}
 FONTS = {'ru': 'https://fonts.googleapis.com/css2?family=Onest:wght@300..800&display=swap', 'ar': 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap'}
 DICT = {l: json.load(open(f'{SRC}/i18n/{l}.json', encoding='utf-8')) for l in ('en', 'ru', 'ar')}
-PAGES_LASTMOD = '2026-11-24'  # tasarım/içerik değişince elle güncelle; yazılar kendi tarihini kullanır
+PAGES_LASTMOD = '2026-11-25'  # tasarım/içerik değişince elle güncelle; yazılar kendi tarihini kullanır
 SPECIAL = {
   'en': {INDEX_DESC: 'On-site mobile marine technical service across Türkiye: marine engines, marine electrical, navigation electronics, hull care and pre-purchase survey.',
          'Sorunun köküne ineriz.': 'We get to the root of the problem.', 'Kurucu & Marine Sistemler Mühendisi': 'Founder & Marine Systems Engineer',
@@ -277,8 +277,27 @@ import json as _j
 _rk = _j.load(open('config.json')).get('recaptcha_site_key', '').strip()
 _rs = ' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/' if _rk else ''
 _rf = " frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/;" if _rk else ''
-CSP = ("default-src 'self'; script-src 'self' 'unsafe-inline'" + _rs + "; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-       "font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; "
+_cfg = _j.load(open('config.json'))
+_an = {k: str(_cfg.get(k, '')).strip() for k in ('ga4', 'clarity', 'meta_pixel', 'linkedin_partner')}
+_sc, _cn, _im, _fr = [], [], [], []
+if _an['ga4']:
+    _sc += ['https://www.googletagmanager.com']
+    _cn += ['https://www.google-analytics.com', 'https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://www.googletagmanager.com']
+    _im += ['https://www.google-analytics.com', 'https://*.google-analytics.com', 'https://www.googletagmanager.com']
+if _an['clarity']:
+    _sc += ['https://www.clarity.ms', 'https://scripts.clarity.ms']
+    _cn += ['https://*.clarity.ms', 'https://c.bing.com']
+    _im += ['https://*.clarity.ms', 'https://c.bing.com']
+if _an['meta_pixel']:
+    _sc += ['https://connect.facebook.net']
+    _cn += ['https://www.facebook.com', 'https://connect.facebook.net']
+    _im += ['https://www.facebook.com']
+if _an['linkedin_partner']:
+    _sc += ['https://snap.licdn.com']
+    _cn += ['https://px.ads.linkedin.com', 'https://www.linkedin.com']
+    _im += ['https://px.ads.linkedin.com', 'https://www.linkedin.com']
+CSP = ("default-src 'self'; script-src 'self' 'unsafe-inline'" + _rs + ''.join(' ' + x for x in _sc) + "; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+       "font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:" + ''.join(' ' + x for x in _im) + "; connect-src 'self'" + ''.join(' ' + x for x in _cn) + "; object-src 'none'; base-uri 'self'; "
        "form-action 'self'; frame-ancestors 'self';" + _rf)
 open(f'{OUT}/_headers', 'w').write('''/*
   Content-Security-Policy: ''' + CSP + '''

@@ -1,0 +1,20 @@
+705|||Privacy and cookies
+706|||Cookie preferences
+707|||This page summarizes what data we process on the Günhan Marine website, for what purpose, and how you can manage your cookie preferences.
+708|||What data we collect
+709|||When you fill in the contact form, we receive your name, contact details, boat details and message. We use this information only to reply to your request and plan the service; we do not sell it to third parties or share it for advertising.
+710|||The form uses Google reCAPTCHA to block spam. This service is subject to Google’s own privacy policy.
+711|||Analytics cookies
+712|||Analytics cookies load only when you choose “Accept”. If you decline or make no choice, no analytics tool runs and you can use the site exactly the same. Tools currently in use:
+713|||Google Analytics 4: measures the pages visited and the number of visits.
+714|||How to change your choice
+715|||You can change your choice at any time using the “Cookie preferences” link at the bottom of the page. Your choice is stored only in this browser; when you withdraw consent, analytics cookies are deleted.
+716|||Your rights
+717|||The data controller is Günhan Marine. Under Turkish Law No. 6698 on the Protection of Personal Data, you have the right to access your data and to request its correction or deletion. For requests, use the contact form or the WhatsApp line.
+718|||Your cookie preferences
+719|||We use analytics cookies to understand how the site is used and to improve the service. They run only with your consent; if you decline, the site works exactly the same.
+720|||Accept
+721|||Decline
+722|||Microsoft Clarity: shows click and scroll behavior on the page through anonymous heatmaps.
+723|||Meta Pixel: measures the effect of Meta (Facebook and Instagram) ads.
+724|||LinkedIn Insight Tag: measures the effect of LinkedIn ads.

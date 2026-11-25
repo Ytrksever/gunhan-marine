@@ -2117,5 +2117,359 @@
 },
 {
 "k": "Mobil servis sahasından: motor, elektrik, seyir elektroniği ve karina bakımı üzerine kısa, uygulanabilir yazılar. Arıza belirtileri, bakım aralıkları ve ilk kontroller."
+},
+{
+"k": "Gizlilik ve çerezler"
+},
+{
+"k": "Çerez tercihleri"
+},
+{
+"k": "Bu sayfa, Günhan Marine web sitesinde hangi verileri hangi amaçla işlediğimizi ve çerez tercihlerinizi nasıl yönetebileceğinizi özetler."
+},
+{
+"k": "Hangi verileri topluyoruz"
+},
+{
+"k": "İletişim formunu doldurduğunuzda adınızı, iletişim bilgilerinizi, tekne bilgilerinizi ve mesajınızı alırız. Bu bilgileri yalnızca talebinize dönüş yapmak ve hizmeti planlamak için kullanırız; üçüncü kişilere satmaz, reklam amacıyla paylaşmayız."
+},
+{
+"k": "Form, istenmeyen iletileri engellemek için Google reCAPTCHA kullanır. Bu hizmet Google’ın kendi gizlilik politikasına tabidir."
+},
+{
+"k": "Analiz çerezleri"
+},
+{
+"k": "Analiz çerezleri yalnızca “Kabul et” dediğinizde yüklenir. Reddederseniz ya da hiç seçim yapmazsanız hiçbir analiz aracı çalışmaz ve siteyi aynı şekilde kullanabilirsiniz. Şu anda kullanılan araçlar:"
+},
+{
+"k": "Google Analytics 4: ziyaret edilen sayfaları ve ziyaret sayısını ölçer."
+},
+{
+"k": "Tercihinizi nasıl değiştirirsiniz"
+},
+{
+"k": "Sayfanın altındaki “Çerez tercihleri” bağlantısından seçiminizi istediğiniz zaman değiştirebilirsiniz. Seçiminiz yalnızca bu tarayıcıda saklanır; onayı geri çektiğinizde analiz çerezleri silinir."
+},
+{
+"k": "Haklarınız"
+},
+{
+"k": "Veri sorumlusu Günhan Marine’dir. 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında verilerinize erişme, düzeltilmesini veya silinmesini isteme hakkına sahipsiniz. Talepleriniz için iletişim formunu ya da WhatsApp hattını kullanabilirsiniz."
+},
+{
+"k": "Çerez tercihleriniz"
+},
+{
+"k": "Siteyi nasıl kullandığınızı anlamak ve hizmeti geliştirmek için analiz çerezleri kullanıyoruz. Bunlar yalnızca onayınızla çalışır; reddederseniz site aynı şekilde kullanılır."
+},
+{
+"k": "Kabul et"
+},
+{
+"k": "Reddet"
+},
+{
+"k": "Microsoft Clarity: sayfadaki tıklama ve kaydırma davranışını anonim ısı haritalarıyla gösterir."
+},
+{
+"k": "Meta Pixel: Meta (Facebook ve Instagram) reklamlarının etkisini ölçer."
+},
+{
+"k": "LinkedIn Insight Tag: LinkedIn reklamlarının etkisini ölçer."
+},
+{
+"k": "6 dk okuma"
+},
+{
+"k": "Sezon öncesi motor bakım planı ve kompresyon testi"
+},
+{
+"k": "Sezon açılmadan önce yapılan düzenli bakım ve kompresyon testi, denizde yaşanacak sürprizleri azaltır. Kontrol sırasını ve test sonuçlarının nasıl okunacağını özetliyoruz."
+},
+{
+"k": "Karina bakımı"
+},
+{
+"k": "Tekne ozmozu nedir, nasıl anlaşılır ve nasıl önlenir?"
+},
+{
+"k": "Ozmoz, polyester teknelerde jelkotun altında su emilmesiyle oluşan kabarcıklardır. Belirtilerini, ciddiyet seviyelerini ve önlemek için yapılabilecekleri anlatıyoruz."
+},
+{
+"k": "Tekne için inverter ve şarj cihazı seçimi: gücü doğru hesaplamak"
+},
+{
+"k": "İnverter ve şarj cihazı seçerken güç değeri kadar akü tipi, kablo kesiti ve sigorta da belirleyicidir. Doğru boyutlandırmanın adımlarını ve sık yapılan hataları anlatıyoruz."
+},
+{
+"k": "Motor üzerine bağlı kompresyon test saati"
+},
+{
+"k": "Beyaz bir yüzeyde yağ lekeleri ve açık bırakılmış bağlantı parçaları"
+},
+{
+"k": "Kırmızı bloklu bir tekne motorunun yanında akü ve elektrik kablolaması"
+},
+{
+"k": "VHF telsiz ve anten sorunları: menzil kaybının 6 yaygın nedeni"
+},
+{
+"k": "VHF telsizin menzili düştüyse sorun çoğu zaman telsizde değil, anten, koaksiyel kablo ve konektör zincirindedir. Sahada en sık gördüğümüz altı nedeni ve ilk kontrolleri özetliyoruz."
+},
+{
+"k": "Tekne motor bölmesinde teknik servis sırasında çekilmiş yakından detay"
+},
+{
+"k": "Sezon öncesinde yağ ve filtreler, soğutma suyu, kayışlar, yakıt sistemi ve akü kontrol edilir. Kompresyon testinde silindirler arasında yaklaşık yüzde 10’dan fazla fark ya da üretici değerinin altında okuma, mekanik bir sorun işaretidir."
+},
+{
+"k": "Kışı beklemiş bir motor, ilk çalıştırmada en çok zorlanan sistemdir. Sezon öncesi planlı bir bakım ve kompresyon testi, denizde kalmamanın en ucuz yoludur."
+},
+{
+"k": "Bakım sırası"
+},
+{
+"k": "Motor yağı ve yağ filtresini değiştirin; yakıt ön filtresini ve su ayırıcıyı kontrol edin."
+},
+{
+"k": "Soğutma suyu devresi: antifriz, pervane (impeller) ve tutya durumuna bakın."
+},
+{
+"k": "Kayışların gerginliği ve çatlaklarına bakın."
+},
+{
+"k": "Aküyü şarj edin ve test edin; terminal ve kabloları temizleyin."
+},
+{
+"k": "Hortum, kelepçe ve egzoz birleşimlerinde sızıntı kontrolü yapın."
+},
+{
+"k": "Şanzıman, drive ve yağlama noktalarını gözden geçirin."
+},
+{
+"k": "Kompresyon testi nasıl yapılır"
+},
+{
+"k": "Motor sıcakken buji veya enjektörleri çıkarın, yakıt ve ateşlemeyi devre dışı bırakın."
+},
+{
+"k": "Kompresyon saatini silindire bağlayıp motoru marşla çevirin ve en yüksek değeri okuyun."
+},
+{
+"k": "Tüm silindirlerde aynı koşulda ölçüm yapın ve sonuçları kaydedin."
+},
+{
+"k": "Sonuçları okumak"
+},
+{
+"k": "Silindirler arası fark yüzde 10’u geçiyorsa ya da değerler üretici sınırının altındaysa segman, supap veya conta sorunu olabilir. Düşük silindire az yağ koyup yeniden ölçüm, sorunun segmanda mı supapta mı olduğunu ayırmaya yardımcı olur."
+},
+{
+"k": "Testten önce yangın ve elektrik güvenliği için ateşleme sistemini devre dışı bıraktığınızdan emin olun. Dizel motorlarda yüksek basınç nedeniyle uygun saat kullanılmalıdır."
+},
+{
+"k": "Kompresyon testi ne sıklıkla yapılır?"
+},
+{
+"k": "Düzenli yapılan bakımlı motorlarda yılda bir ya da güç kaybı, zor çalışma ve duman görüldüğünde yapılır. İkinci el alımda da değerli bir kontroldür."
+},
+{
+"k": "Sezon öncesi bakım ne kadar sürer?"
+},
+{
+"k": "Motorun tipine ve durumuna göre değişir. Standart bakım genellikle yarım günlük işlemdir; ek arıza çıkarsa süre uzar."
+},
+{
+"k": "Adana, Hatay veya Alanya’da sezon öncesi bakım yaptırabilir miyim?"
+},
+{
+"k": "Evet. Bakım ve kompresyon testi teknenin bulunduğu yerde yapılır. Adana, Mersin ve Hatay’ın yanı sıra Bodrum, Alanya, Antalya ve İstanbul için randevuya göre planlama yapılır."
+},
+{
+"k": "İnverter gücü, aynı anda çalışacak cihazların toplamı ve yol alma akımına göre seçilir; şarj cihazı ise akü kapasitesinin yaklaşık yüzde 10-25’i kadar akım vermelidir. Her iki cihazda kablo kesiti, sigorta ve akü tipine uygun şarj profili en az güç kadar önemlidir."
+},
+{
+"k": "Teknede 12 V akü sistemi ile 220 V cihazlar arasındaki köprü inverter, kıyı elektriği ya da jeneratör varken aküyü dolduran ise şarj cihazıdır. Yanlış boyutlandırma ya yetersiz güç ya da boşa gitmiş yatırım demektir."
+},
+{
+"k": "İnverter gücünü nasıl seçersiniz"
+},
+{
+"k": "Aynı anda çalışacak cihazların güçlerini toplayın (ör. kahve makinesi, mikrodalga, şarj aletleri)."
+},
+{
+"k": "Motorlu cihazlarda yol alma akımı birkaç kat olabilir; tepe gücünü karşılayan model seçin."
+},
+{
+"k": "Saf sinüs çıkışlı modeller hassas elektronik ve motorlu cihazlar için daha güvenlidir."
+},
+{
+"k": "Büyük yüklerde akü bankası ve kablo da ona göre büyütülmelidir."
+},
+{
+"k": "Şarj cihazı seçimi"
+},
+{
+"k": "Akım değeri, akü bankası kapasitesinin yaklaşık yüzde 10-25’i olmalıdır."
+},
+{
+"k": "Akü tipine (AGM, jel, kurşun-asit, lityum) uygun şarj profilini seçin."
+},
+{
+"k": "Çok çıkışlı modeller marş ve servis akülerini ayrı ayrı doldurur."
+},
+{
+"k": "Sıcaklık sensörü, aşırı şarjı önler ve akü ömrünü uzatır."
+},
+{
+"k": "Kablo ve sigorta"
+},
+{
+"k": "Yüksek akımlı inverter kabloları kısa tutulmalı ve doğru kesitte olmalıdır. Akü ucuna mümkün olduğunca yakın, doğru değerde bir sigorta konur. İnce kablo gerilim düşürür, ısınır ve yangın riski oluşturur."
+},
+{
+"k": "İnverter ve şarj cihazının 220 V tarafı, kıyı elektriği ile karışmaması için doğru transfer anahtarıyla bağlanmalıdır. Bu bağlantıyı yetkin bir teknisyene yaptırın."
+},
+{
+"k": "Kaç watt’lık inverter yeterli olur?"
+},
+{
+"k": "Aynı anda kullanacağınız cihazların toplam gücü ile yol alma akımına bağlıdır. Genelde küçük tekneler için 1000-2000 W, çok cihazlı teknelerde daha büyük modeller seçilir."
+},
+{
+"k": "Şarj cihazı aküyü fazla doldurur mu?"
+},
+{
+"k": "Doğru profile ayarlanmış ve sıcaklık sensörü bağlı modern şarj cihazları fazla doldurmaz. Yanlış akü tipi seçimi ise aküye zarar verir."
+},
+{
+"k": "Mersin ve Adana’da inverter ve şarj cihazı kurulumu yapılıyor mu?"
+},
+{
+"k": "Evet. Boyutlandırma, kablolama ve devreye alma teknenin bulunduğu yerde yapılır. Hatay, Bodrum, Alanya, Antalya ve İstanbul için de randevuya göre planlama yapılır."
+},
+{
+"k": "Ozmoz, polyester gövdede suyun jelkot altına sızıp kabarcık oluşturmasıdır. Karinada küçük kabarcıklar görülürse nem ölçümü ve profesyonel inceleme yapılmalı; önlem olarak gövde sezon sonunda iyice kurutulmalı ve bariyer kaplama uygulanmalıdır."
+},
+{
+"k": "Polyester tekneler yıllar içinde suyu az da olsa emer. Bu nem, laminat içindeki çözünür maddelerle birleşince jelkot altında sıvı dolu kabarcıklar oluşturabilir. Bu olaya ozmoz denir."
+},
+{
+"k": "Belirtiler"
+},
+{
+"k": "Karina altında, bezelye boyutundan küçük kabarcıklar."
+},
+{
+"k": "Kabarcık delindiğinde sirke kokulu sıvı gelmesi."
+},
+{
+"k": "Boya veya antifouling altında kabarma ve soyulma."
+},
+{
+"k": "Gövdede nem ölçerle yüksek değerler."
+},
+{
+"k": "Ne kadar ciddi"
+},
+{
+"k": "Yüzeysel ve az sayıdaki kabarcık çoğu zaman kozmetiktir. Laminata ilerleyen, çok sayıdaki kabarcık ise yapısal sorun yaratabilir. Bu nedenle gövde profesyonelce ölçülmeli ve değerlendirilmelidir."
+},
+{
+"k": "Önlem ve tedavi"
+},
+{
+"k": "Tekneyi sezon sonunda karaya alıp gövdeyi iyice kurutun."
+},
+{
+"k": "Yeni veya bakımlı bir gövdede epoksi bariyer kaplama uygulayın."
+},
+{
+"k": "Kabarcıkları açın, yıkayın, kurutun ve epoksi ile doldurun."
+},
+{
+"k": "Uygulamadan önce nem oranının yeterince düşmesini bekleyin."
+},
+{
+"k": "Kaplama, gövde yeterince kurumadan yapılırsa nemi içeride hapseder ve sorunu geri getirir. Acele etmeyin, nem ölçümünü tekrarlayın."
+},
+{
+"k": "Ozmoz teknenin ömrünü bitirir mi?"
+},
+{
+"k": "Hafif ozmoz çoğu zaman teknik sorun yaratmaz. Yaygın ve ilerlemiş ozmoz ise laminatı zayıflatabilir; bu yüzden erken tespit önemlidir."
+},
+{
+"k": "Akdeniz’de ozmoz daha mı sık görülür?"
+},
+{
+"k": "Su sıcaklığı ve teknenin uzun süre suda kalması nemi artırır. Karaya alınıp kurutulan tekneler daha az risk taşır."
+},
+{
+"k": "Mersin, Antalya veya Bodrum’da ozmoz incelemesi yapılıyor mu?"
+},
+{
+"k": "Evet. Karada bekleyen teknede gövde incelemesi ve nem ölçümü yapılır. Adana, Mersin ve Hatay’ın yanı sıra Bodrum, Alanya, Antalya ve İstanbul için randevuya göre planlama yapılır."
+},
+{
+"k": "Menzil kaybında önce anten ve kablo zinciri kontrol edilir: konektördeki nem ve korozyon, koaksiyel kablonun ezilmesi, hatalı lehim, topraklama ve yetersiz besleme gerilimi en sık nedenlerdir. SWR ölçümü sorunun antende mi kabloda mı olduğunu hızla ayırır."
+},
+{
+"k": "Denizde VHF telsiz bir güvenlik ekipmanıdır. Menzili beklenenden kısaysa telsizi değiştirmeden önce anten zincirine bakmak gerekir; sahada arızaların büyük kısmı burada çıkar."
+},
+{
+"k": "Sık görülen altı neden"
+},
+{
+"k": "Konektörde nem ve korozyon: Koaksiyel konektöre giren tuzlu nem sinyali zayıflatır. Konektör temizlenmeli, kuru ve sızdırmaz şekilde yeniden bağlanmalıdır."
+},
+{
+"k": "Kablo hasarı: Ezilmiş, keskin köşede bükülmüş veya dikiş yerinden su almış kablo kaybı artırır."
+},
+{
+"k": "Hatalı konektör montajı: Sahada yapılan lehim veya krimp hataları yüksek SWR üretir."
+},
+{
+"k": "Anten ve montaj: Gevşek, korozyona uğramış veya yanlış tipte anten. Direğe sert çarpan antenin içi kopmuş olabilir."
+},
+{
+"k": "Topraklama ve parazit: Pano ve motordan gelen elektriksel gürültü alıcıyı bozar; yapıyı sessiz hale getirmek gerekir."
+},
+{
+"k": "Besleme gerilimi: Akü zayıfsa ya da besleme kablosu inceyse vericinin gücü düşer."
+},
+{
+"k": "SWR ölçümü neden önemli"
+},
+{
+"k": "SWR ölçer, antenden geri dönen gücü gösterir. 1,5’un altı genellikle iyidir; 2’nin üstü ise anten, kablo ya da konektörde sorun olduğunu gösterir. Ölçüm tek başına arızayı bulmaz ama aramayı hızlıca daraltır."
+},
+{
+"k": "Çalışırken dikkat"
+},
+{
+"k": "Verici açıkken antene dokunmayın ve anteni tekne dışında, açık alanda yakın kişilere doğru tutmayın. Ölçümden önce telsiz kapatılır ve gerekiyorsa kısa süreli, düşük güçte test yapılır."
+},
+{
+"k": "DSC özellikli telsizde MMSI numarasının girilmesi ve GPS bağlantısı, acil durum çağrısının konumla gitmesi için gerekir. Bu ayarı mutlaka kontrol edin."
+},
+{
+"k": "VHF telsizin normal menzili ne kadardır?"
+},
+{
+"k": "Menzil görüş hattına bağlıdır. Tekne anteni ile tekne anteni arası yaklaşık 5-10 deniz mili, sahil istasyonlarıyla ise anten yüksekliğine göre 20-30 mil civarındadır."
+},
+{
+"k": "Anteni kendim değiştirebilir miyim?"
+},
+{
+"k": "Kablo yeterince uzunsa ve konektör bağlantısı doğru yapılırsa mümkündür. Konektörün hatalı montajı en sık sorun olduğundan, SWR ölçümü ile doğrulama önerilir."
+},
+{
+"k": "İstanbul, Bodrum veya Antalya’da VHF ve anten kontrolü yapılıyor mu?"
+},
+{
+"k": "Evet. Telsiz, anten ve kablo zinciri teknenin bulunduğu yerde kontrol edilir. Adana, Mersin ve Hatay’ın yanı sıra Bodrum, Alanya, Antalya ve İstanbul için randevuya göre planlama yapılır."
 }
 ]

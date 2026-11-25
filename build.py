@@ -166,6 +166,20 @@ for a, b in REPL:
 assert 'rgba(255,255,255,.0' not in css.replace('rgba(255,255,255,.6)', '') or True
 
 EXTRA_CSS = """
+
+.legal { display: inline-flex; flex-wrap: wrap; gap: .25rem 1.25rem; align-items: center; }
+.legal a, .consent-open { color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; padding: .35rem 0; min-height: 24px; cursor: pointer; }
+.legal a:hover, .consent-open:hover { color: var(--ink); }
+.consent { position: fixed; z-index: 90; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); max-width: 680px; margin-inline: auto; padding: 1.1rem 1.25rem; border-radius: 18px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 16px 48px rgba(0, 0, 0, .35); }
+.consent p { margin: 0; line-height: 1.5; font-size: .9375rem; color: var(--muted); }
+.consent .consent-t { color: var(--ink); font-family: var(--display); font-size: 1.05rem; font-weight: 600; margin-bottom: .35rem; }
+.consent-a { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-top: .9rem; }
+.consent-a .btn { min-height: 44px; }
+.consent-a a { color: var(--muted); font-size: .9rem; text-underline-offset: 3px; padding-block: .5rem; }
+.legal-page .wrap { max-width: 760px; }
+.legal-page h2 { margin-top: 2.25rem; }
+.legal-page p, .legal-page li { color: var(--muted); line-height: 1.7; }
+.legal-page ul { padding-inline-start: 1.25rem; }
 .skip { position: absolute; inset-inline-start: .75rem; top: -4rem; z-index: 100; padding: .7rem 1.1rem; border-radius: 10px; background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none; }
 .skip:focus { top: calc(.75rem + env(safe-area-inset-top, 0px)); }
 main:focus { outline: none; }
@@ -542,6 +556,8 @@ SUB_JS = r"""
 
 import json as _json
 RECAPTCHA_KEY = _json.load(open(SP + '/config.json')).get('recaptcha_site_key', '').strip()
+_cfg = _json.load(open(SP + '/config.json'))
+ANALYTICS = {k: str(_cfg.get(k, '')).strip() for k in ('ga4', 'clarity', 'meta_pixel', 'linkedin_partner')}
 
 def patch_form(js):
     reps = [
@@ -716,12 +732,97 @@ js = patch_form(js)
 
 SKIP = '<a class="skip" href="#top">İçeriğe geç</a>'
 
+CONSENT_JS = r"""(function () {
+  'use strict';
+  var AN = __GM_AN__, KEY = 'gm-consent';
+  if (!(AN.ga4 || AN.clarity || AN.meta_pixel || AN.linkedin_partner)) return;
+  var T = function (s) { return window.GM ? window.GM.t(s) : s; };
+  var doc = document, root = doc.documentElement, box = null, loaded = false;
+  var PL = root.getAttribute('data-static');
+  var base = (doc.getElementById('gm-root') || doc.body).getAttribute('data-root') || '';
+  var policy = (PL ? '/' + PL + '/' : base) + 'gizlilik.html';
+  function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function add(src) { var s = doc.createElement('script'); s.async = true; s.src = src; doc.head.appendChild(s); }
+  function load() {
+    if (loaded) return; loaded = true;
+    if (AN.ga4) {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', AN.ga4, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
+      add('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(AN.ga4));
+    }
+    if (AN.clarity) {
+      (function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); }; t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, doc, 'clarity', 'script', AN.clarity);
+    }
+    if (AN.meta_pixel) {
+      (function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = true; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = true; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); })(window, doc, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', AN.meta_pixel); fbq('track', 'PageView');
+    }
+    if (AN.linkedin_partner) {
+      window._linkedin_data_partner_ids = (window._linkedin_data_partner_ids || []).concat([AN.linkedin_partner]);
+      add('https://snap.licdn.com/li.lms-analytics/insight.min.js');
+    }
+    doc.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href]') : null; if (!a) return;
+      var h = a.getAttribute('href') || '', m = /^tel:/.test(h) ? 'phone' : /wa\.me|whatsapp/.test(h) ? 'whatsapp' : /^mailto:/.test(h) ? 'email' : '';
+      if (!m) return;
+      if (window.gtag) gtag('event', 'contact_click', { method: m });
+      if (window.fbq) fbq('track', 'Contact');
+    }, true);
+    doc.addEventListener('submit', function (e) {
+      if (!e.target || e.target.tagName !== 'FORM') return;
+      if (window.gtag) gtag('event', 'generate_lead', { form: 'talep' });
+      if (window.fbq) fbq('track', 'Lead');
+    }, true);
+  }
+  function clearCookies() {
+    var host = location.hostname.replace(/^www\./, '');
+    doc.cookie.split(';').forEach(function (c) {
+      var n = c.split('=')[0].trim();
+      if (/^(_ga|_gid|_gat|_clck|_clsk|CLID|_fbp|_fbc|li_|lidc|bcookie|UserMatchHistory)/.test(n)) {
+        doc.cookie = n + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+        doc.cookie = n + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.' + host;
+      }
+    });
+  }
+  function render() {
+    if (!box) return;
+    box.querySelector('.consent-t').textContent = T('Çerez tercihleriniz');
+    box.querySelector('.consent-d').textContent = T('Siteyi nasıl kullandığınızı anlamak ve hizmeti geliştirmek için analiz çerezleri kullanıyoruz. Bunlar yalnızca onayınızla çalışır; reddederseniz site aynı şekilde kullanılır.');
+    box.querySelector('[data-c="granted"]').textContent = T('Kabul et');
+    box.querySelector('[data-c="denied"]').textContent = T('Reddet');
+    var a = box.querySelector('a'); a.textContent = T('Gizlilik ve çerezler'); a.href = policy;
+    box.setAttribute('aria-label', T('Çerez tercihleriniz'));
+    var o = doc.querySelector('.consent-open'); if (o) o.textContent = T('Çerez tercihleri');
+  }
+  function show() {
+    if (box) return;
+    box = doc.createElement('div'); box.className = 'consent'; box.setAttribute('role', 'region');
+    box.innerHTML = '<p class="consent-t"></p><p class="consent-d"></p><div class="consent-a"><button type="button" class="btn btn-ghost" data-c="granted"></button><button type="button" class="btn btn-ghost" data-c="denied"></button><a href="#"></a></div>';
+    doc.body.appendChild(box); render();
+    box.addEventListener('click', function (e) {
+      var c = e.target.getAttribute && e.target.getAttribute('data-c'); if (!c) return;
+      var was = read(); write(c); box.parentNode.removeChild(box); box = null;
+      if (c === 'granted') load();
+      else if (was === 'granted') { clearCookies(); location.reload(); }
+    });
+  }
+  var st = read();
+  if (st === 'granted') load(); else if (st !== 'denied') show();
+  var open = doc.querySelector('.consent-open');
+  if (open) { open.hidden = false; open.textContent = T('Çerez tercihleri'); open.addEventListener('click', show); }
+  window.addEventListener('gm-lang', render);
+})();""".replace('__GM_AN__', _json.dumps(ANALYTICS))
+
+
 def assemble_index():
     head = ('<title>Günhan Marine</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">\n')
     return (head + INIT_JS + '\n<style>' + css + EXTRA_CSS + '</style>\n<div data-root="" id="gm-root" hidden></div>\n' + SKIP + index.replace('<main id="top">', '<main id="top" tabindex="-1">', 1)
-            + '\n<script>' + COMMON_JS + '</script>\n<script>\n' + js + '\n</script>\n')
+            + '\n<script>' + COMMON_JS + '</script>\n<script>\n' + js + '\n</script>\n<script>' + CONSENT_JS + '</script>\n')
 open(OUT + '/index.html', 'w', encoding='utf-8').write(assemble_index())
 
 # ---------- Alt sayfalar ----------
@@ -738,9 +839,10 @@ HEAD = ('<!doctype html><html lang="tr"><head><meta charset="utf-8">'
         '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}'
         + css + EXTRA_CSS + '</style>' + INIT_JS + '</head>')
 
+
 def page(title, body, root_prefix, service_value=None):
     attr = ' data-root="%s"' % root_prefix + (' data-service="%s"' % service_value if service_value else '')
-    return HEAD.replace('@@TITLE@@', esc(title)) + '<body%s>' % attr + SKIP + body.replace('<main id="top">', '<main id="top" tabindex="-1">') + '<script>' + COMMON_JS + '</script><script>' + SUB_JS + '</script></body></html>'
+    return HEAD.replace('@@TITLE@@', esc(title)) + '<body%s>' % attr + SKIP + body.replace('<main id="top">', '<main id="top" tabindex="-1">').replace('href="gizlilik.html"', 'href="%sgizlilik.html"' % root_prefix) + '<script>' + COMMON_JS + '</script>' + ('<script>' + SUB_JS + '</script>' if 'id="talep"' in body else '') + '<script>' + CONSENT_JS + '</script></body></html>'
 
 def faq_html(items, open_first=True):
     parts = ['<details%s><summary>%s</summary><p class="ans">%s</p></details>' % (' open' if (open_first and i == 0) else '', esc(q), esc(a)) for i, (q, a) in enumerate(items)]
@@ -818,6 +920,30 @@ about_body = (header('', 'about') +
     + talep + '</main>' + footer + fab)
 open(OUT + '/hakkimizda.html', 'w', encoding='utf-8').write(page('Hakkımızda | Günhan Marine', about_body, ''))
 
+# Gizlilik ve çerezler
+TOOLS_TXT = {'ga4': 'Google Analytics 4: ziyaret edilen sayfaları ve ziyaret sayısını ölçer.',
+             'clarity': 'Microsoft Clarity: sayfadaki tıklama ve kaydırma davranışını anonim ısı haritalarıyla gösterir.',
+             'meta_pixel': 'Meta Pixel: Meta (Facebook ve Instagram) reklamlarının etkisini ölçer.',
+             'linkedin_partner': 'LinkedIn Insight Tag: LinkedIn reklamlarının etkisini ölçer.'}
+_tools = ''.join('<li>%s</li>' % esc(t) for k, t in TOOLS_TXT.items() if ANALYTICS.get(k))
+priv_body = (header('', 'x') +
+    '<main id="top"><section class="page-hero legal-page"><div class="wrap">'
+    '<nav class="crumb" aria-label="Sayfa yolu"><a href="index.html">Anasayfa</a><span>/</span><span>Gizlilik ve çerezler</span></nav>'
+    '<h1>Gizlilik ve çerezler</h1>'
+    '<p class="lead">Bu sayfa, Günhan Marine web sitesinde hangi verileri hangi amaçla işlediğimizi ve çerez tercihlerinizi nasıl yönetebileceğinizi özetler.</p>'
+    '<h2>Hangi verileri topluyoruz</h2>'
+    '<p>İletişim formunu doldurduğunuzda adınızı, iletişim bilgilerinizi, tekne bilgilerinizi ve mesajınızı alırız. Bu bilgileri yalnızca talebinize dönüş yapmak ve hizmeti planlamak için kullanırız; üçüncü kişilere satmaz, reklam amacıyla paylaşmayız.</p>'
+    '<p>Form, istenmeyen iletileri engellemek için Google reCAPTCHA kullanır. Bu hizmet Google’ın kendi gizlilik politikasına tabidir.</p>'
+    '<h2>Analiz çerezleri</h2>'
+    '<p>Analiz çerezleri yalnızca “Kabul et” dediğinizde yüklenir. Reddederseniz ya da hiç seçim yapmazsanız hiçbir analiz aracı çalışmaz ve siteyi aynı şekilde kullanabilirsiniz. Şu anda kullanılan araçlar:</p>'
+    '<ul>' + _tools + '</ul>'
+    '<h2>Tercihinizi nasıl değiştirirsiniz</h2>'
+    '<p>Sayfanın altındaki “Çerez tercihleri” bağlantısından seçiminizi istediğiniz zaman değiştirebilirsiniz. Seçiminiz yalnızca bu tarayıcıda saklanır; onayı geri çektiğinizde analiz çerezleri silinir.</p>'
+    '<h2>Haklarınız</h2>'
+    '<p>Veri sorumlusu Günhan Marine’dir. 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında verilerinize erişme, düzeltilmesini veya silinmesini isteme hakkına sahipsiniz. Talepleriniz için iletişim formunu ya da WhatsApp hattını kullanabilirsiniz.</p>'
+    '</div></section></main>' + footer + fab)
+open(OUT + '/gizlilik.html', 'w', encoding='utf-8').write(page('Gizlilik ve çerezler | Günhan Marine', priv_body, ''))
+
 # Blog liste
 blog_body = (header('', 'blog') +
     '<main id="top"><section class="page-hero"><div class="wrap">'
@@ -865,7 +991,7 @@ for p in POSTS:
     open(OUT + '/blog/%s.html' % p['slug'], 'w', encoding='utf-8').write(page(p['title'] + ' | Günhan Marine', body, '../', SERVICE_VALUES[si]))
 
 # ---------- Dosya listesi ----------
-allf = (['index.html', 'hakkimizda.html', 'blog.html'] + sorted('blog/' + f for f in os.listdir(OUT + '/blog')) +
+allf = (['index.html', 'hakkimizda.html', 'blog.html', 'gizlilik.html'] + sorted('blog/' + f for f in os.listdir(OUT + '/blog')) +
         sorted('hizmetler/' + f for f in os.listdir(OUT + '/hizmetler')) + sorted('i18n/' + f for f in os.listdir(OUT + '/i18n')) +
         sorted('images/' + f for f in os.listdir(OUT + '/images')))
 json.dump(allf, open(SP + '/files.json', 'w'))

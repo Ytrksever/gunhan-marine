@@ -1,0 +1,98 @@
+725|||6 min read
+726|||Pre-season engine maintenance plan and compression test
+727|||Regular maintenance and a compression test before the season opens reduce surprises at sea. We summarize the order of checks and how to read the test results.
+728|||Hull care
+729|||What is boat osmosis, how can you tell, and how do you prevent it?
+730|||Osmosis is the blistering that forms when water is absorbed beneath the gelcoat of polyester boats. We explain the symptoms, the severity levels and what you can do to prevent it.
+731|||Choosing an inverter and charger for your boat: sizing the power correctly
+732|||When choosing an inverter and charger, battery type, cable cross-section and fuse matter as much as the power rating. We cover the sizing steps and common mistakes.
+733|||Compression test gauge connected to an engine
+734|||Oil stains and open fittings on a white surface
+735|||Battery and electrical wiring next to a red-block boat engine
+736|||VHF radio and antenna problems: 6 common causes of lost range
+737|||If your VHF radio’s range has dropped, the problem is usually not the radio but the chain of antenna, coaxial cable and connector. We summarize the six causes we see most in the field and the first checks.
+738|||Close-up detail photographed during technical service in a boat engine compartment
+739|||Before the season, check the oil and filters, coolant, belts, fuel system and battery. In a compression test, a difference of more than about 10% between cylinders, or a reading below the manufacturer’s value, signals a mechanical problem.
+740|||An engine that has waited out the winter is under the most strain at the first start. Planned maintenance and a compression test before the season are the cheapest way to avoid being stranded at sea.
+741|||Maintenance order
+742|||Change the engine oil and oil filter; check the fuel pre-filter and water separator.
+743|||Cooling circuit: check the antifreeze, impeller and anode condition.
+744|||Check belt tension and look for cracks.
+745|||Charge and test the battery; clean the terminals and cables.
+746|||Check hoses, clamps and exhaust joints for leaks.
+747|||Review the gearbox, drive and lubrication points.
+748|||How a compression test is done
+749|||With the engine warm, remove the spark plugs or injectors and disable the fuel and ignition.
+750|||Connect the compression gauge to the cylinder, crank the engine with the starter and read the highest value.
+751|||Measure all cylinders under the same conditions and record the results.
+752|||Reading the results
+753|||If the difference between cylinders exceeds 10%, or the values are below the manufacturer’s limit, there may be a ring, valve or gasket problem. Adding a little oil to the low cylinder and measuring again helps tell whether the problem is in the rings or the valves.
+754|||Before the test, make sure you have disabled the ignition system for fire and electrical safety. On diesel engines a suitable gauge must be used because of the high pressure.
+755|||How often should a compression test be done?
+756|||On well-maintained engines once a year, or whenever power loss, hard starting or smoke appears. It is also a valuable check when buying a used boat.
+757|||How long does pre-season maintenance take?
+758|||It depends on the engine type and condition. Standard maintenance is usually a half-day job; if extra faults turn up, it takes longer.
+759|||Can I have pre-season maintenance done in Adana, Hatay or Alanya?
+760|||Yes. Maintenance and the compression test are carried out where the boat is. Besides Adana, Mersin and Hatay, we also plan by appointment for Bodrum, Alanya, Antalya and Istanbul.
+761|||Inverter power is chosen from the total of devices running at the same time and their starting current; the charger should deliver roughly 10-25% of the battery capacity as current. For both devices, cable cross-section, fuse and a charging profile suited to the battery type matter at least as much as power.
+762|||On a boat, the inverter is the bridge between the 12 V battery system and 220 V devices, and the charger fills the battery when shore power or a generator is available. Wrong sizing means either too little power or wasted investment.
+763|||How to choose inverter power
+764|||Add up the power of the devices that will run at the same time (e.g. coffee machine, microwave, chargers).
+765|||Motorized devices can have a starting current several times higher; choose a model that covers the peak power.
+766|||Pure sine wave models are safer for sensitive electronics and motorized devices.
+767|||For large loads, the battery bank and cables must be scaled up accordingly.
+768|||Choosing a charger
+769|||The current rating should be roughly 10-25% of the battery bank capacity.
+770|||Choose a charging profile suited to the battery type (AGM, gel, lead-acid, lithium).
+771|||Multi-output models charge the starter and service batteries separately.
+772|||A temperature sensor prevents overcharging and extends battery life.
+773|||Cable and fuse
+774|||High-current inverter cables should be kept short and have the correct cross-section. A fuse of the right rating is placed as close to the battery terminal as possible. Thin cable drops voltage, heats up and creates a fire risk.
+775|||The 220 V side of the inverter and charger must be connected through the correct transfer switch so it cannot mix with shore power. Have this connection made by a qualified technician.
+776|||How many watts of inverter is enough?
+777|||It depends on the total power of the devices you will use at the same time and their starting current. Generally 1000-2000 W for small boats; larger models for boats with many devices.
+778|||Does the charger overcharge the battery?
+779|||Modern chargers set to the right profile and with a temperature sensor connected do not overcharge. Choosing the wrong battery type, however, damages the battery.
+780|||Is inverter and charger installation done in Mersin and Adana?
+781|||Yes. Sizing, wiring and commissioning are done where the boat is. We also plan by appointment for Hatay, Bodrum, Alanya, Antalya and Istanbul.
+782|||Osmosis is water seeping under the gelcoat of a polyester hull and forming blisters. If small blisters appear on the hull bottom, moisture measurement and a professional inspection should be done; as prevention, the hull should be dried thoroughly at the end of the season and a barrier coat applied.
+783|||Polyester boats absorb a little water over the years. When this moisture combines with soluble substances in the laminate, it can form fluid-filled blisters under the gelcoat. This is called osmosis.
+784|||Symptoms
+785|||Small blisters, smaller than a pea, on the hull bottom.
+786|||A vinegar-smelling liquid comes out when a blister is pierced.
+787|||Bubbling and peeling under paint or antifouling.
+788|||High readings on a moisture meter.
+789|||How serious is it?
+790|||A few shallow blisters are often only cosmetic. Numerous blisters that go into the laminate can create a structural problem. That is why the hull should be professionally measured and assessed.
+791|||Prevention and treatment
+792|||Haul the boat out at the end of the season and dry the hull thoroughly.
+793|||Apply an epoxy barrier coat on a new or well-maintained hull.
+794|||Open the blisters, wash, dry and fill them with epoxy.
+795|||Wait until the moisture level has dropped enough before applying.
+796|||If the coating is applied before the hull has dried enough, it traps moisture inside and the problem returns. Do not rush; repeat the moisture measurement.
+797|||Does osmosis end a boat’s life?
+798|||Mild osmosis usually causes no technical problem. Widespread, advanced osmosis can weaken the laminate, which is why early detection matters.
+799|||Is osmosis more common in the Mediterranean?
+800|||Water temperature and long periods in the water increase moisture. Boats that are hauled out and dried carry less risk.
+801|||Is osmosis inspection done in Mersin, Antalya or Bodrum?
+802|||Yes. Hull inspection and moisture measurement are done on boats waiting on land. Besides Adana, Mersin and Hatay, we also plan by appointment for Bodrum, Alanya, Antalya and Istanbul.
+803|||When range is lost, the antenna and cable chain is checked first: moisture and corrosion in the connector, a crushed coaxial cable, a bad solder joint, grounding and insufficient supply voltage are the most common causes. An SWR measurement quickly shows whether the problem is in the antenna or the cable.
+804|||At sea, a VHF radio is a piece of safety equipment. If its range is shorter than expected, look at the antenna chain before replacing the radio; most faults in the field turn up there.
+805|||Six common causes
+806|||Moisture and corrosion in the connector: Salty moisture entering the coaxial connector weakens the signal. The connector should be cleaned and reconnected dry and sealed.
+807|||Cable damage: A cable that is crushed, bent at a sharp corner or has taken water at a splice increases loss.
+808|||Faulty connector installation: Solder or crimp errors made in the field produce a high SWR.
+809|||Antenna and mounting: A loose, corroded or wrong-type antenna. An antenna that has struck the mast hard may be broken inside.
+810|||Grounding and interference: Electrical noise from the panel and engine disrupts the receiver; the installation needs to be made quiet.
+811|||Supply voltage: If the battery is weak or the supply cable is thin, the transmitter’s power drops.
+812|||Why SWR measurement matters
+813|||An SWR meter shows the power reflected back from the antenna. Below 1.5 is generally good; above 2 indicates a problem in the antenna, cable or connector. The measurement alone does not find the fault, but it narrows the search quickly.
+814|||Safety while working
+815|||Do not touch the antenna while the transmitter is on, and do not point the antenna at people nearby in an open area off the boat. The radio is switched off before measuring and, if needed, a short test is made at low power.
+816|||On a radio with DSC, entering the MMSI number and having a GPS connection are required for a distress call to go out with the position. Be sure to check this setting.
+817|||What is the normal range of a VHF radio?
+818|||Range depends on line of sight. Roughly 5-10 nautical miles between two boat antennas, and around 20-30 miles with coast stations, depending on antenna height.
+819|||Can I replace the antenna myself?
+820|||It is possible if the cable is long enough and the connector is wired correctly. Since faulty connector installation is the most common problem, verification with an SWR measurement is recommended.
+821|||Is VHF and antenna checking done in Istanbul, Bodrum or Antalya?
+822|||Yes. The radio, antenna and cable chain are checked where the boat is. Besides Adana, Mersin and Hatay, we also plan by appointment for Bodrum, Alanya, Antalya and Istanbul.

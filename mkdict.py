@@ -4,7 +4,7 @@ os.makedirs('build/i18n',exist_ok=True)
 bad=0
 for lang in ('en','ru','ar'):
     tr={}
-    for part in (0,1,2,3,4,5,6,7,8):
+    for part in (0,1,2,3,4,5,6,7,8,9,10):
         for line in open(f'tx/{lang}_{part}.txt',encoding='utf-8'):
             line=line.rstrip('\n')
             if not line.strip(): continue

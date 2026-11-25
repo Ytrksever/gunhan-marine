@@ -7,9 +7,9 @@ B = SP + '/build'
 norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 LETTER = re.compile(r'[^\W\d_]')
 SKIP = {'script', 'style', 'noscript', 'textarea'}
-EXTRA = ['MARİNA', 'TERSANE', 'ÇEKEK', 'TEKNE', 'SEYİR', 'ELEKTRİK', 'AKÜ', 'MOTOR', 'PERVANE', 'Lütfen "Ben robot değilim" kutusunu işaretleyin.', 'Lütfen adınızı ve telefon numaranızı yazın.', 'Gönderiliyor…', 'Talebiniz iletildi. En kısa sürede sizi arayacağız.', 'Gönderilemedi. Lütfen WhatsApp veya telefonla ulaşın.', 'Metin seçildi, kopyalamak için basılı tutun.', 'Mesaj kopyalandı.', 'Kopyalandı:', 'MERSİN', 'HATAY', 'ADANA', 'K']
+EXTRA = ['Çerez tercihleriniz', 'Siteyi nasıl kullandığınızı anlamak ve hizmeti geliştirmek için analiz çerezleri kullanıyoruz. Bunlar yalnızca onayınızla çalışır; reddederseniz site aynı şekilde kullanılır.', 'Kabul et', 'Reddet', 'Gizlilik ve çerezler', 'Çerez tercihleri', 'Google Analytics 4: ziyaret edilen sayfaları ve ziyaret sayısını ölçer.', 'Microsoft Clarity: sayfadaki tıklama ve kaydırma davranışını anonim ısı haritalarıyla gösterir.', 'Meta Pixel: Meta (Facebook ve Instagram) reklamlarının etkisini ölçer.', 'LinkedIn Insight Tag: LinkedIn reklamlarının etkisini ölçer.', 'MARİNA', 'TERSANE', 'ÇEKEK', 'TEKNE', 'SEYİR', 'ELEKTRİK', 'AKÜ', 'MOTOR', 'PERVANE', 'Lütfen "Ben robot değilim" kutusunu işaretleyin.', 'Lütfen adınızı ve telefon numaranızı yazın.', 'Gönderiliyor…', 'Talebiniz iletildi. En kısa sürede sizi arayacağız.', 'Gönderilemedi. Lütfen WhatsApp veya telefonla ulaşın.', 'Metin seçildi, kopyalamak için basılı tutun.', 'Mesaj kopyalandı.', 'Kopyalandı:', 'MERSİN', 'HATAY', 'ADANA', 'K']
 
-pages = ['index.html', 'hakkimizda.html', 'blog.html']
+pages = ['index.html', 'hakkimizda.html', 'blog.html', 'gizlilik.html']
 pages += sorted('blog/' + f for f in os.listdir(B + '/blog'))
 pages += sorted('hizmetler/' + f for f in os.listdir(B + '/hizmetler'))
 
