@@ -318,4 +318,13 @@ open(f'{OUT}/_headers', 'w').write('''/*
 open(f'{OUT}/_redirects', 'w').write('# eski adres -> yeni adres\n/blog/kurban-anot-cinko-nedir-ne-zaman-degistirilir.html  /blog/tutya-cinko-nedir-ne-zaman-degistirilir.html  301\n/hizmetler/travel-lift-tersane-ekipmanlari.html  /  301\n')
 if os.path.exists(f'{OUT}/files.json'): os.remove(f'{OUT}/files.json')
 open('indexnow_urls.json', 'w').write(json.dumps({"host": DOMAIN.split('//')[1], "key": KEY, "keyLocation": f"{DOMAIN}/{KEY}.txt", "urlList": [U(l, r) for r, _ in sitemap_items for l in LANGS]}, indent=1))
+# Netlify .html adreslerini uzantısız adrese yönlendirir; kanonik, hreflang, site haritası ve veri adreslerini buna uyduruyoruz.
+_abs = re.compile(re.escape(DOMAIN) + r'(/[^"\'<>\s#?]*?)\.html(?![\w/.-])')
+def _clean(m): return DOMAIN + (m.group(1)[:-len('/index')] if m.group(1).endswith('/index') else m.group(1))
+for _d, _, _fs in os.walk(OUT):
+    for _f in _fs:
+        if _f.endswith(('.html', '.xml', '.txt', '.json')) and _f != '404.html':
+            _p = os.path.join(_d, _f); _t = open(_p, encoding='utf-8').read(); _n = _abs.sub(_clean, _t)
+            if _n != _t: open(_p, 'w', encoding='utf-8').write(_n)
+_ix = open('indexnow_urls.json', encoding='utf-8').read(); open('indexnow_urls.json', 'w', encoding='utf-8').write(_abs.sub(_clean, _ix))
 print(len(pages), 'sayfa;', DOMAIN, '; anahtar', KEY)
